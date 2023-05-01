@@ -1,0 +1,12 @@
+C:\2023_DotNetProjects\008-StandByApp\SLN_StandBy\src\StandBy.Business\bin\Debug\net7.0\StandBy.Business.deps.json
+C:\2023_DotNetProjects\008-StandByApp\SLN_StandBy\src\StandBy.Business\bin\Debug\net7.0\StandBy.Business.dll
+C:\2023_DotNetProjects\008-StandByApp\SLN_StandBy\src\StandBy.Business\bin\Debug\net7.0\StandBy.Business.pdb
+C:\2023_DotNetProjects\008-StandByApp\SLN_StandBy\src\StandBy.Business\obj\Debug\net7.0\StandBy.Business.csproj.AssemblyReference.cache
+C:\2023_DotNetProjects\008-StandByApp\SLN_StandBy\src\StandBy.Business\obj\Debug\net7.0\StandBy.Business.GeneratedMSBuildEditorConfig.editorconfig
+C:\2023_DotNetProjects\008-StandByApp\SLN_StandBy\src\StandBy.Business\obj\Debug\net7.0\StandBy.Business.AssemblyInfoInputs.cache
+C:\2023_DotNetProjects\008-StandByApp\SLN_StandBy\src\StandBy.Business\obj\Debug\net7.0\StandBy.Business.AssemblyInfo.cs
+C:\2023_DotNetProjects\008-StandByApp\SLN_StandBy\src\StandBy.Business\obj\Debug\net7.0\StandBy.Business.csproj.CoreCompileInputs.cache
+C:\2023_DotNetProjects\008-StandByApp\SLN_StandBy\src\StandBy.Business\obj\Debug\net7.0\StandBy.Business.dll
+C:\2023_DotNetProjects\008-StandByApp\SLN_StandBy\src\StandBy.Business\obj\Debug\net7.0\refint\StandBy.Business.dll
+C:\2023_DotNetProjects\008-StandByApp\SLN_StandBy\src\StandBy.Business\obj\Debug\net7.0\StandBy.Business.pdb
+C:\2023_DotNetProjects\008-StandByApp\SLN_StandBy\src\StandBy.Business\obj\Debug\net7.0\ref\StandBy.Business.dll

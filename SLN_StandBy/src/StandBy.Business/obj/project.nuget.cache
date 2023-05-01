@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "uwlqdq9h5/9M5Ud3l5eu1LYTM6RjjDDMY6rwuvnNWOQaGzo8F9V2UDdIBMDyFWXKCz0I26OqHZKwKgWdSMx6FQ==",
+  "success": true,
+  "projectFilePath": "C:\\2023_DotNetProjects\\008-StandByApp\\SLN_StandBy\\src\\StandBy.Business\\StandBy.Business.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\jhonatan.landes\\.nuget\\packages\\fluentvalidation\\11.5.2\\fluentvalidation.11.5.2.nupkg.sha512"
+  ],
+  "logs": []
+}

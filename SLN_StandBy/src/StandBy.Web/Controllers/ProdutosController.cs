@@ -3,7 +3,7 @@
 namespace StandBy.Web.Controllers
 {
     
-    public class ProdutoController : Controller
+    public class ProdutosController : Controller
     {
         [Route("lista-de-produtos")]
         public async Task<IActionResult> Index()

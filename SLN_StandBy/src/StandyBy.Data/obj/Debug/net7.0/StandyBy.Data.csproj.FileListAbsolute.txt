@@ -1,0 +1,17 @@
+C:\2023_DotNetProjects\008-StandByApp\SLN_StandBy\src\StandyBy.Data\bin\Debug\net7.0\StandyBy.Data.deps.json
+C:\2023_DotNetProjects\008-StandByApp\SLN_StandBy\src\StandyBy.Data\bin\Debug\net7.0\StandyBy.Data.runtimeconfig.json
+C:\2023_DotNetProjects\008-StandByApp\SLN_StandBy\src\StandyBy.Data\bin\Debug\net7.0\StandyBy.Data.dll
+C:\2023_DotNetProjects\008-StandByApp\SLN_StandBy\src\StandyBy.Data\bin\Debug\net7.0\StandyBy.Data.pdb
+C:\2023_DotNetProjects\008-StandByApp\SLN_StandBy\src\StandyBy.Data\obj\Debug\net7.0\StandyBy.Data.csproj.AssemblyReference.cache
+C:\2023_DotNetProjects\008-StandByApp\SLN_StandBy\src\StandyBy.Data\obj\Debug\net7.0\StandyBy.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\2023_DotNetProjects\008-StandByApp\SLN_StandBy\src\StandyBy.Data\obj\Debug\net7.0\StandyBy.Data.AssemblyInfoInputs.cache
+C:\2023_DotNetProjects\008-StandByApp\SLN_StandBy\src\StandyBy.Data\obj\Debug\net7.0\StandyBy.Data.AssemblyInfo.cs
+C:\2023_DotNetProjects\008-StandByApp\SLN_StandBy\src\StandyBy.Data\obj\Debug\net7.0\StandyBy.Data.csproj.CoreCompileInputs.cache
+C:\2023_DotNetProjects\008-StandByApp\SLN_StandBy\src\StandyBy.Data\obj\Debug\net7.0\StandyBy.Data.dll
+C:\2023_DotNetProjects\008-StandByApp\SLN_StandBy\src\StandyBy.Data\obj\Debug\net7.0\refint\StandyBy.Data.dll
+C:\2023_DotNetProjects\008-StandByApp\SLN_StandBy\src\StandyBy.Data\obj\Debug\net7.0\StandyBy.Data.pdb
+C:\2023_DotNetProjects\008-StandByApp\SLN_StandBy\src\StandyBy.Data\obj\Debug\net7.0\StandyBy.Data.genruntimeconfig.cache
+C:\2023_DotNetProjects\008-StandByApp\SLN_StandBy\src\StandyBy.Data\obj\Debug\net7.0\ref\StandyBy.Data.dll
+C:\2023_DotNetProjects\008-StandByApp\SLN_StandBy\src\StandyBy.Data\bin\Debug\net7.0\StandBy.Business.dll
+C:\2023_DotNetProjects\008-StandByApp\SLN_StandBy\src\StandyBy.Data\bin\Debug\net7.0\StandBy.Business.pdb
+C:\2023_DotNetProjects\008-StandByApp\SLN_StandBy\src\StandyBy.Data\obj\Debug\net7.0\StandyBy.Data.csproj.CopyComplete
