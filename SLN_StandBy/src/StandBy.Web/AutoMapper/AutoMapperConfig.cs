@@ -10,6 +10,10 @@ namespace StandBy.Web.AutoMapper
         {
             CreateMap<Produto, ProdutoDTO>().ReverseMap();
             CreateMap<Cliente, ClienteDTO>().ReverseMap();
+            CreateMap<Pedido, PedidoDTO>().ReverseMap();
+            CreateMap<PedidoItem, PedidoItemDTO>().ReverseMap();
+
+
         }
     }
 }

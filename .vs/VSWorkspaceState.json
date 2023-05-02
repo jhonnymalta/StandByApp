@@ -5,8 +5,9 @@
     "\\SLN_StandBy\\src",
     "\\SLN_StandBy\\src\\StandBy.Web",
     "\\SLN_StandBy\\src\\StandBy.Web\\Data",
-    "\\SLN_StandBy\\src\\StandBy.Web\\DTOs"
+    "\\SLN_StandBy\\src\\StandBy.Web\\DTOs",
+    "\\SLN_StandBy\\src\\StandyBy.Api"
   ],
-  "SelectedNode": "\\SLN_StandBy\\src\\StandBy.Web\\Data\\ApplicationDbContext.cs",
+  "SelectedNode": "\\SLN_StandBy\\src\\StandyBy.Api\\Program.cs",
   "PreviewInSolutionExplorer": false
 }

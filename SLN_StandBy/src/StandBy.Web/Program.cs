@@ -28,11 +28,15 @@ builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddScoped<StandByDBContext>();
-builder.Services.AddScoped<IProdutoRepository, ProdutoRepository>();
-builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
 builder.Services.AddScoped<INotificador, Notificador>();
 builder.Services.AddScoped<IProdutoServices, ProdutoService>();
 builder.Services.AddScoped<IClienteServices, ClienteService>();
+builder.Services.AddScoped<IPedidoServices, PedidoService>();
+builder.Services.AddScoped<IPedidoItemServices, PedidoItemService>();
+builder.Services.AddScoped<IProdutoRepository, ProdutoRepository>();
+builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
+builder.Services.AddScoped<IPedidoRepository, PedidoRepository>();
+builder.Services.AddScoped<IPedidoItemRepository, PedidoItemRepository>();
 
 var app = builder.Build();
 
