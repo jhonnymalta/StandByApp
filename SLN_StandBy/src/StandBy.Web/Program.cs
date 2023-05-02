@@ -1,6 +1,9 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using StandBy.Business.Intefaces;
+using StandBy.Business.Notificacoes;
+using StandBy.Business.Services;
 using StandBy.Web.Data;
 using StandyBy.Data.Context;
 using StandyBy.Data.Repository;
@@ -13,7 +16,9 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 
 builder.Services.AddDbContext<StandByDBContext>(options =>
-    options.UseSqlServer(connectionString));
+    options.UseSqlServer(connectionString)
+    .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking)
+    );
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
@@ -24,6 +29,10 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddScoped<StandByDBContext>();
 builder.Services.AddScoped<IProdutoRepository, ProdutoRepository>();
+builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
+builder.Services.AddScoped<INotificador, Notificador>();
+builder.Services.AddScoped<IProdutoServices, ProdutoService>();
+builder.Services.AddScoped<IClienteServices, ClienteService>();
 
 var app = builder.Build();
 

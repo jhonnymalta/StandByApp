@@ -11,7 +11,7 @@ for details on configuring this project to bundle and minify static web assets. 
     width: 15vw;
 }
 .content {
-    background-color: hotpink;    
+    background-color: #cccccc;    
     min-width: 85vw;
 }
 

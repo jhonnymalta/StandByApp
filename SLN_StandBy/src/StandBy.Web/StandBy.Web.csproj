@@ -20,4 +20,9 @@
     <ProjectReference Include="..\StandyBy.Data\StandyBy.Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Data\Migrations\" />
+    <Folder Include="Views\Clientes\" />
+  </ItemGroup>
+
 </Project>

@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace StandBy.Business.Intefaces
 {
-    public interface IProdutoServices
+    public interface IProdutoServices : IDisposable
     {
-        Task Adicionar(Produto produto);
-        Task Atualizar(Produto produto);
-        Task Remover(int id);
+        Task<bool> Adicionar(Produto produto);
+        Task<bool> Atualizar(Produto produto);
+        Task<bool> Remover(int id);
     }
 }

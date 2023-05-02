@@ -13,25 +13,44 @@ namespace StandBy.Business.Services
     {
         private readonly IProdutoRepository _produtoRepository;
 
-        public ProdutoService(IProdutoRepository produtoRepository)
+        public ProdutoService(IProdutoRepository produtoRepository, INotificador notificador) : base(notificador)
         {
             _produtoRepository = produtoRepository;
-        }
-        public async Task Adicionar(Produto produto)
-        {
-            if (!ExecutarValidacao(new ProdutoValidation(), produto)) return;
 
         }
-
-        public async Task Atualizar(Produto produto)
+        public async Task<bool> Adicionar(Produto produto)
         {
-            if (!ExecutarValidacao(new ProdutoValidation(), produto)) return;
+            if(!ExecutarValidacao(new ProdutoValidation(), produto)) return false;
+
+            if(_produtoRepository.Buscar(p => p.Codigo == produto.Codigo).Result.Any())
+            {
+                Notificar("Já Existe um produto com este código.");
+                return false;
+            }
+            await _produtoRepository.Adicionar(produto);
+            return true;
 
         }
 
-        public async Task Remover(int id)
+        public async Task<bool> Atualizar(Produto produto)
         {
-            throw new NotImplementedException();
+            if (!ExecutarValidacao(new ProdutoValidation(), produto)) return false;
+            await _produtoRepository.Atualizar(produto);
+            return true;
+
+        }
+
+        public async Task<bool> Remover(int id)
+        {
+            var produto = await _produtoRepository.ObterPorId(id);
+            if(produto == null) return false;
+            await _produtoRepository.Remover(id);
+            return true;
+        }
+
+        public void Dispose()
+        {
+            _produtoRepository?.Dispose();
         }
     }
 }

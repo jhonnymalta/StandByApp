@@ -1,0 +1,38 @@
+﻿@model IEnumerable<StandBy.Web.DTOs.ClienteDTO>
+@{
+    ViewData["Title"] = "Lista de Clientes";
+    Layout = "_Layout_Loged";
+}
+
+<div>
+    <h2>Lista de Produtos</h2>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nome</th>            
+            <th scope="col">Documento</th>
+            <th scope="col">Status</th>
+           
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+            <th scope="row">1</th>
+            <td>@item.Nome</td>
+            <td>@item.CpfCnpj</td>
+            <td>@item.Ativo</td>
+            
+            <td>
+                    <a asp-controller="Clientes" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">Editar</a>
+                    <a asp-controller="Clientes" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Excluir</a>
+            </td>
+            </tr>
+        }        
+        
+      
+    </tbody>
+</table>
