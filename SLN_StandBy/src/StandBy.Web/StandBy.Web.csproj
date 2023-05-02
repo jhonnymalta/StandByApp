@@ -22,7 +22,8 @@
 
   <ItemGroup>
     <Folder Include="Data\Migrations\" />
-    <Folder Include="Views\Clientes\" />
+    <Folder Include="Views\PedidosItens\" />
+    <Folder Include="Views\Pedidos\" />
   </ItemGroup>
 
 </Project>

@@ -21,10 +21,8 @@ namespace StandBy.Web.Controllers
             _produtoServices= produtoServices;
             _mapper = mapper;
 
-            
-            
-
         }
+
         
         [Route("lista-de-produtos")]
         public async Task<IActionResult> Index()
