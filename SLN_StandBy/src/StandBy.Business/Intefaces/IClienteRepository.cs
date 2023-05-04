@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace StandBy.Business.Intefaces
 {
-    public interface IPedidoRepository : IRepository<Pedido>
+    public interface IClienteRepository : IRepository<Cliente>
     {
     }
 }

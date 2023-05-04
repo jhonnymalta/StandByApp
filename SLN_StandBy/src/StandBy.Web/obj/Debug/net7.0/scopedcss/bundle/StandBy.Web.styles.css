@@ -50,63 +50,55 @@ button.accept-policy[b-85x73tj07j] {
 /* _content/StandBy.Web/Views/Shared/_Layout_Loged.cshtml.rz.scp.css */
 /* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
-.base[b-5nsv5j3r36]{
-    margin:0;
-    padding:0;
-    width:100vw;
-    display:flex
+body[b-5nsv5j3r36] {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-y: hidden;
 }
-.sidebar[b-5nsv5j3r36] {
-    background-color: aquamarine;
-    width: 15vw;
+.grid[b-5nsv5j3r36] {
+  width: 100vw;
+  min-height: 100vh;
+  display: grid;
+  overflow-y: auto;
 }
+
+.logo[b-5nsv5j3r36] {
+  grid-area: logo;
+  background-color: #00a878;
+}
+.menu[b-5nsv5j3r36] {
+  grid-area: menu;
+  background-color: #00a878;
+  box-shadow: 0.35rem 0.25rem 0.25rem rgba(51, 51, 51, 8);
+}
+
 .content[b-5nsv5j3r36] {
-    background-color: #cccccc;    
-    min-width: 85vw;
+  grid-area: content;
+  padding: 20px;
+  overflow-y: auto;
 }
 
-a.navbar-brand[b-5nsv5j3r36] {
-    white-space: normal;
-    text-align: center;
-    word-break: break-all;
+.sidebar[b-5nsv5j3r36] {
+  grid-area: sidebar;
+  background-color: #d8dfdb;
+  box-shadow: 0.25rem 0.05rem 0.25rem rgba(51, 51, 51, 8);
 }
+.footer[b-5nsv5j3r36] {
+  grid-area: footer;
 
-a[b-5nsv5j3r36] {
-  color: #0077cc;
+  background: rgba(51, 51, 51, 0.2);
 }
-
-.btn-primary[b-5nsv5j3r36] {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
-}
-
-.nav-pills .nav-link.active[b-5nsv5j3r36], .nav-pills .show > .nav-link[b-5nsv5j3r36] {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
-}
-
-.border-top[b-5nsv5j3r36] {
-  border-top: 1px solid #e5e5e5;
-}
-.border-bottom[b-5nsv5j3r36] {
-  border-bottom: 1px solid #e5e5e5;
-}
-
-.box-shadow[b-5nsv5j3r36] {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+.grid-template-areas[b-5nsv5j3r36] {
+  grid-template-columns: 15% 85%;
+  grid-template-rows: 60px 1fr 50px;
+  grid-template-areas:
+    "logo menu"
+    "sidebar content "
+    "sidebar footer ";
 }
 
 button.accept-policy[b-5nsv5j3r36] {
   font-size: 1rem;
   line-height: inherit;
-}
-
-.footer[b-5nsv5j3r36] {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px;
 }

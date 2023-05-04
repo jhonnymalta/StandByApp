@@ -12,5 +12,8 @@ namespace StandyBy.Data.Repository
     public class ProdutoRepository : Repository<Produto>, IProdutoRepository
     {
         public ProdutoRepository(StandByDBContext context) : base(context) { }
+
+
+
     }
 }

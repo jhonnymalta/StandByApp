@@ -4,8 +4,21 @@
     Layout = "_Layout_Loged";
 }
 
+
+
 <div>
-    <h2>Lista de Produtos</h2>
+    <h2 class="text-center">Lista de Clientes</h2>
+</div>
+<div>
+   <ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="lista-de-clientes">Clientes Cadastrados</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="novo-cliente">Cadastrar Novo Cliente</a>
+  </li>
+  
+</ul> 
 </div>
 <table class="table">
     <thead>
@@ -14,6 +27,7 @@
             <th scope="col">Nome</th>            
             <th scope="col">Documento</th>
             <th scope="col">Status</th>
+            <th scope="col">Ações</th>
            
         </tr>
     </thead>
@@ -36,3 +50,4 @@
       
     </tbody>
 </table>
+

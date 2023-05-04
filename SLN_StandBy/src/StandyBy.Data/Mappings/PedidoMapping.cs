@@ -13,10 +13,12 @@ namespace StandyBy.Data.Mappings
     {
         public void Configure(EntityTypeBuilder<Pedido> builder)
         {
-            builder.HasKey(p => p.Id);           
+            builder.HasKey(p => p.Id);
             builder.Property(p => p.Valor).IsRequired().HasColumnType("decimal(18,2)");
 
-            builder.HasOne(navigationExpression: p => p.Cliente).WithOne(navigationExpression: c => c.Pedido);
+            // builder.HasOne(navigationExpression: p => p.Cliente).WithOne(navigationExpression: c => c.Pedido);
+            builder.HasOne(navigationExpression: p => p.Cliente).WithMany(navigationExpression: c => c.Pedido)
+                .HasForeignKey(p => p.ClienteId);
 
             builder.HasMany(navigationExpression: p => p.PedidosItens).WithOne(navigationExpression: c => c.Pedido)
                 .HasForeignKey(c => c.PedidoId);

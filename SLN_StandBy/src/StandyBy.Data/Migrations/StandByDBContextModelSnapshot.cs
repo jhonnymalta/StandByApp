@@ -41,6 +41,9 @@ namespace StandyBy.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(100)");
 
+                    b.Property<int>("PedidoId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.ToTable("Clientes", (string)null);
@@ -72,8 +75,7 @@ namespace StandyBy.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ClienteId")
-                        .IsUnique();
+                    b.HasIndex("ClienteId");
 
                     b.ToTable("Pedidos", (string)null);
                 });
@@ -138,8 +140,8 @@ namespace StandyBy.Data.Migrations
             modelBuilder.Entity("StandBy.Business.Models.Pedido", b =>
                 {
                     b.HasOne("StandBy.Business.Models.Cliente", "Cliente")
-                        .WithOne("Pedido")
-                        .HasForeignKey("StandBy.Business.Models.Pedido", "ClienteId")
+                        .WithMany("Pedido")
+                        .HasForeignKey("ClienteId")
                         .IsRequired();
 
                     b.Navigation("Cliente");
@@ -157,8 +159,7 @@ namespace StandyBy.Data.Migrations
 
             modelBuilder.Entity("StandBy.Business.Models.Cliente", b =>
                 {
-                    b.Navigation("Pedido")
-                        .IsRequired();
+                    b.Navigation("Pedido");
                 });
 
             modelBuilder.Entity("StandBy.Business.Models.Pedido", b =>

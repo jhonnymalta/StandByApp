@@ -1,0 +1,17 @@
+﻿@model StandBy.Web.DTOs.PedidoItemDTO;
+@{
+    ViewData["Title"] = "Excluir Produto";
+    Layout = "_Layout_Loged";
+}
+
+<div>
+    <h2>Tem certeza que deseja excluir esse item do pedido @Model.Id</h2>
+    <div>
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="Id" />
+            <input type="submit" value="Excluir" class="btn btn-danger" />
+            <a class="btn btn-info" href="javascript:window.history.back();">Voltar</a>
+        </form>
+    </div>
+</div>
+

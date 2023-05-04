@@ -11,6 +11,8 @@ namespace StandBy.Web.DTOs
         public int PedidoId { get; set; }
         public int ProdutoID { get; set; }
 
+        public IEnumerable<Produto> ListaProdutos { get; set; }
+
         [Required(ErrorMessage = "O campo {0} é obrigatório.")]
         public int Quantidade { get; set; }
         public decimal ValorUnitario { get; set; }

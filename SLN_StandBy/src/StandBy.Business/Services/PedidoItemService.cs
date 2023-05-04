@@ -20,13 +20,13 @@ namespace StandBy.Business.Services
         }
         public async Task<bool> Adicionar(PedidoItem pedidoItem)
         {
-            if(!ExecutarValidacao(new PedidoItemValidation(), pedidoItem)) return false;
+            if (!ExecutarValidacao(new PedidoItemValidation(), pedidoItem)) return false;
 
-            if(_pedidoItemRepository.Buscar(p => p.Id == pedidoItem.Id).Result.Any())
-            {
-                Notificar("Já Existe um produto com este código.");
-                return false;
-            }
+            // if(_pedidoItemRepository.Buscar(p => p.Id == pedidoItem.Id).Result.Any())
+            // {
+            //     Notificar("Já Existe um produto com este código.");
+            //     return false;
+            // }
             await _pedidoItemRepository.Adicionar(pedidoItem);
             return true;
 
@@ -43,7 +43,7 @@ namespace StandBy.Business.Services
         public async Task<bool> Remover(int id)
         {
             var produto = await _pedidoItemRepository.ObterPorId(id);
-            if(produto == null) return false;
+            if (produto == null) return false;
             await _pedidoItemRepository.Remover(id);
             return true;
         }

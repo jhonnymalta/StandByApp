@@ -9,5 +9,11 @@ namespace StandBy.Business.Intefaces
 {
     public interface IPedidoItemRepository : IRepository<PedidoItem>
     {
+
+        Task<IEnumerable<PedidoItem>> ObterTodosPedidosPorId(int id);
+        Task<IEnumerable<Produto>> ObterTodosProdutos();
+
+
+        Task<Decimal> BuscarValorProduto(int id);
     }
 }

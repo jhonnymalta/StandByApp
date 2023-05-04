@@ -6,8 +6,10 @@
     "\\SLN_StandBy\\src\\StandBy.Web",
     "\\SLN_StandBy\\src\\StandBy.Web\\Data",
     "\\SLN_StandBy\\src\\StandBy.Web\\DTOs",
+    "\\SLN_StandBy\\src\\StandBy.Web\\Views",
+    "\\SLN_StandBy\\src\\StandBy.Web\\Views\\Shared",
     "\\SLN_StandBy\\src\\StandyBy.Api"
   ],
-  "SelectedNode": "\\SLN_StandBy\\src\\StandyBy.Api\\Program.cs",
+  "SelectedNode": "\\SLN_StandBy\\SLN_StandBy.sln",
   "PreviewInSolutionExplorer": false
 }

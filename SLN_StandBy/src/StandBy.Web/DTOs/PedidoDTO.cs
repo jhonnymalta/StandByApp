@@ -10,6 +10,8 @@ namespace StandBy.Web.DTOs
         public int Id { get; set; }
         public int ClienteId { get; set; }
 
+        public IEnumerable<Cliente> ListaIdCliente { get; set; }
+
         [ScaffoldColumn(false)]
         public DateTime Data { get; set; }
 
