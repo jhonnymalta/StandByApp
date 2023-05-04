@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using StandBy.Business.Intefaces;
 using StandBy.Business.Models;
@@ -7,6 +8,7 @@ using StandyBy.Api.DTOs;
 namespace StandyBy.Api.Controllers
 {
     [Route("api/produtos")]
+    [Authorize]
     public class ProdutosController : MainController
     {
 
