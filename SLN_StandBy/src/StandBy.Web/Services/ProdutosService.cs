@@ -11,7 +11,6 @@ using System.Runtime.Serialization;
 using StandBy.Web.DTOs;
 using System.Runtime.Serialization.Json;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 
 namespace StandBy.Web.Services
 {
@@ -46,6 +45,11 @@ namespace StandBy.Web.Services
             throw new NotImplementedException();
         }
 
+        public void Dispose()
+        {
+            _httpClient?.Dispose();
+        }
+
         public Task<ProdutoDTO> ObterPorId(int id)
         {
             throw new NotImplementedException();
@@ -58,13 +62,12 @@ namespace StandBy.Web.Services
 
             var response = await _httpClient.GetAsync("http://localhost:5109/api/produtos");
             var str = await response.Content.ReadAsStringAsync();
-            JObject result = JObject.Parse(str);
+            var retorno = JsonConvert.DeserializeObject<List<ProdutoDTO>>(str);
 
 
 
-            List<ProdutoDTO> produtos = (List<ProdutoDTO>)JsonConvert.DeserializeObject(result);
 
-            return produtos;
+            return retorno;
         }
 
         public Task Remover(int id)

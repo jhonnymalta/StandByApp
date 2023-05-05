@@ -7,7 +7,7 @@ using StandBy.Web.DTOs;
 
 namespace StandBy.Web.Services
 {
-    public interface IProdutosService
+    public interface IProdutosService : IDisposable
     {
         Task Adicionar(ProdutoDTO produtoDTO);
         Task<ProdutoDTO> ObterPorId(int id);
