@@ -44,12 +44,21 @@ namespace StandBy.Web.Controllers
 
 
         [Route("novo-produto")]
-        public async Task<IActionResult> Create(ProdutoDTO produtoDTO)
+        public IActionResult Create()
         {
-            // if (!ModelState.IsValid) return View(produtoDTO);
-            // var produto = _mapper.Map<Produto>(produtoDTO);
-            // await _produtoServices.Adicionar(produto);
-            return RedirectToAction("Index");
+
+            return View();
+
+        }
+
+        [HttpPost]
+        [Route("novo-produto")]
+        public async Task<IActionResult> Create([FromBody] ProdutoDTO produtoDTO)
+        {
+            if (!ModelState.IsValid) return View(produtoDTO);
+
+            await _produtosService.Adicionar(produtoDTO);
+            return View(produtoDTO);
 
         }
 

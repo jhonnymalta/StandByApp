@@ -1,14 +1,6 @@
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
-using StandBy.Business.Intefaces;
-using StandBy.Business.Notificacoes;
-using StandBy.Business.Services;
+
 using StandBy.Web.Configuration;
-using StandBy.Web.Data;
-using StandyBy.Data.Context;
-using StandyBy.Data.Repository;
-using Microsoft.Extensions.DependencyInjection;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,19 +10,18 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddRazorPages();
 
-// builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
-//     .AddEntityFrameworkStores<ApplicationDbContext>();
+
 builder.Services.AddAutoMapper(typeof(Program));
 
 builder.Services.AddControllersWithViews();
-builder.Services.AddAuthentication("Identity.Login")
-                .AddCookie("Identity.Login", config =>
-                {
-                    config.Cookie.Name = "Identity.Login";
-                    config.LoginPath = "/Login";
-                    config.AccessDeniedPath = "/Login";
-                    config.ExpireTimeSpan = TimeSpan.FromHours(8);
-                });
+// builder.Services.AddAuthentication("Identity.Login")
+//                 .AddCookie("Identity.Login", config =>
+//                 {
+//                     config.Cookie.Name = "Identity.Login";
+//                     config.LoginPath = "/Login";
+//                     config.AccessDeniedPath = "/Login";
+//                     config.ExpireTimeSpan = TimeSpan.FromHours(8);
+//                 });
 builder.Services.RegisterServices();
 
 
@@ -55,7 +46,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
 // app.UseAuthentication();
-//app.UseAuthorization();
+app.UseAuthorization();
 
 
 

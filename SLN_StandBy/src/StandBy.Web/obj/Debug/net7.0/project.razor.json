@@ -18742,11 +18742,6 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\2023_DotNetProjects\\008-StandByApp\\SLN_StandBy\\src\\StandBy.Web\\Areas\\Identity\\Pages\\_ViewImports.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\_ViewImports.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "c:\\2023_DotNetProjects\\008-StandByApp\\SLN_StandBy\\src\\StandBy.Web\\Views\\Produtos\\Delete.cshtml",
       "TargetPath": "Views\\Produtos\\Delete.cshtml",
       "FileKind": "mvc"
@@ -18759,11 +18754,6 @@
     {
       "FilePath": "c:\\2023_DotNetProjects\\008-StandByApp\\SLN_StandBy\\src\\StandBy.Web\\Views\\PedidosItems\\AddItem.cshtml",
       "TargetPath": "Views\\PedidosItems\\AddItem.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\2023_DotNetProjects\\008-StandByApp\\SLN_StandBy\\src\\StandBy.Web\\Areas\\Identity\\Pages\\Account\\Register.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\Register.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -18787,11 +18777,6 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\2023_DotNetProjects\\008-StandByApp\\SLN_StandBy\\src\\StandBy.Web\\Areas\\Identity\\Pages\\_ViewStart.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\_ViewStart.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "c:\\2023_DotNetProjects\\008-StandByApp\\SLN_StandBy\\src\\StandBy.Web\\Views\\PedidosItems\\Edit.cshtml",
       "TargetPath": "Views\\PedidosItems\\Edit.cshtml",
       "FileKind": "mvc"
@@ -18807,11 +18792,6 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\2023_DotNetProjects\\008-StandByApp\\SLN_StandBy\\src\\StandBy.Web\\Areas\\Identity\\Pages\\Account\\_ViewImports.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\_ViewImports.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "c:\\2023_DotNetProjects\\008-StandByApp\\SLN_StandBy\\src\\StandBy.Web\\Views\\Shared\\_Layout.cshtml",
       "TargetPath": "Views\\Shared\\_Layout.cshtml",
       "FileKind": "mvc"
@@ -18822,11 +18802,6 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\2023_DotNetProjects\\008-StandByApp\\SLN_StandBy\\src\\StandBy.Web\\Areas\\Identity\\Pages\\_ValidationScriptsPartial.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\_ValidationScriptsPartial.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "c:\\2023_DotNetProjects\\008-StandByApp\\SLN_StandBy\\src\\StandBy.Web\\Views\\PedidosItems\\Delete.cshtml",
       "TargetPath": "Views\\PedidosItems\\Delete.cshtml",
       "FileKind": "mvc"
@@ -18834,11 +18809,6 @@
     {
       "FilePath": "c:\\2023_DotNetProjects\\008-StandByApp\\SLN_StandBy\\src\\StandBy.Web\\Views\\Pedidos\\Delete.cshtml",
       "TargetPath": "Views\\Pedidos\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\2023_DotNetProjects\\008-StandByApp\\SLN_StandBy\\src\\StandBy.Web\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\Login.cshtml",
       "FileKind": "mvc"
     },
     {
