@@ -12,7 +12,7 @@ using StandBy.Business.Models;
 
 namespace StandyBy.Api.Controllers
 {
-    [Route("api/conta")]
+    [Route("api")]
     public class AuthenticationController : MainController
     {
         private readonly SignInManager<IdentityUser> _signInManager;
@@ -23,7 +23,11 @@ namespace StandyBy.Api.Controllers
             _signInManager = signInManager;
             _userManager = userManager;
         }
-        public async Task<ActionResult> Registrar(RegisterUser registerUser)
+
+        [HttpPost("nova-conta")]
+        public async Task<ActionResult> Registrar(
+                [FromBody] UsuarioRegistro registerUser
+            )
         {
 
             if (!ModelState.IsValid) return BadRequest();
@@ -46,6 +50,22 @@ namespace StandyBy.Api.Controllers
             return Ok(registerUser);
         }
 
+        [HttpPost("entrar")]
+        public async Task<ActionResult> Login([FromBody] UsuarioLogin loginUser)
+        {
+            if (!ModelState.IsValid) return BadRequest();
+
+            var resullt = await _signInManager.PasswordSignInAsync(loginUser.Email, loginUser.Password, isPersistent: false, lockoutOnFailure: true);
+
+            if (resullt.Succeeded) return Ok(loginUser);
+
+            if (resullt.IsLockedOut)
+            {
+                return BadRequest("Usuário bloqueado");
+            }
+            return Ok(loginUser);
+
+        }
 
     }
 }

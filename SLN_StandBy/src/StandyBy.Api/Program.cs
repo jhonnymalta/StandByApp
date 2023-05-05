@@ -23,14 +23,14 @@ builder.Services.AddDbContext<StandByDBContext>(options =>
 {
     options.UseSqlServer(connectionString).UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
 });
+builder.Services.AddCors();
+// builder.Services.AddCors(options =>
+// {
+//     options.AddPolicy("CorsPolicy", builder => builder.AllowAnyOrigin()
+//     .AllowAnyMethod()
+//     .AllowAnyHeader());
 
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("Development", builder => builder.AllowAnyOrigin()
-    .AllowAnyMethod()
-    .AllowAnyHeader()
-    .AllowCredentials());
-});
+// });
 
 builder.Services.AddIdentityConfiguration(builder.Configuration);
 builder.Services.AddAutoMapper(typeof(Program));
@@ -44,7 +44,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-app.UseCors();
+// app.UseCors("CorsPolicy");
 app.UseHttpsRedirection();
 app.UseAuthentication();
 

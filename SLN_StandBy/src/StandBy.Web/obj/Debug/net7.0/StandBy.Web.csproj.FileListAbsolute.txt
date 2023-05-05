@@ -292,3 +292,14 @@ C:\2023_DotNetProjects\008-StandByApp\SLN_StandBy\src\StandBy.Web\bin\Debug\net7
 C:\2023_DotNetProjects\008-StandByApp\SLN_StandBy\src\StandBy.Web\bin\Debug\net7.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
 C:\2023_DotNetProjects\008-StandByApp\SLN_StandBy\src\StandBy.Web\bin\Debug\net7.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
 C:\2023_DotNetProjects\008-StandByApp\SLN_StandBy\src\StandBy.Web\bin\Debug\net7.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+C:\2023_DotNetProjects\008-StandByApp\SLN_StandBy\src\StandBy.Web\bin\Debug\net7.0\StandyBy.Api.deps.json
+C:\2023_DotNetProjects\008-StandByApp\SLN_StandBy\src\StandBy.Web\bin\Debug\net7.0\StandyBy.Api.runtimeconfig.json
+C:\2023_DotNetProjects\008-StandByApp\SLN_StandBy\src\StandBy.Web\bin\Debug\net7.0\StandyBy.Api.exe
+C:\2023_DotNetProjects\008-StandByApp\SLN_StandBy\src\StandBy.Web\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\2023_DotNetProjects\008-StandByApp\SLN_StandBy\src\StandBy.Web\bin\Debug\net7.0\Microsoft.AspNetCore.OpenApi.dll
+C:\2023_DotNetProjects\008-StandByApp\SLN_StandBy\src\StandBy.Web\bin\Debug\net7.0\Microsoft.OpenApi.dll
+C:\2023_DotNetProjects\008-StandByApp\SLN_StandBy\src\StandBy.Web\bin\Debug\net7.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\2023_DotNetProjects\008-StandByApp\SLN_StandBy\src\StandBy.Web\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\2023_DotNetProjects\008-StandByApp\SLN_StandBy\src\StandBy.Web\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\2023_DotNetProjects\008-StandByApp\SLN_StandBy\src\StandBy.Web\bin\Debug\net7.0\StandyBy.Api.dll
+C:\2023_DotNetProjects\008-StandByApp\SLN_StandBy\src\StandBy.Web\bin\Debug\net7.0\StandyBy.Api.pdb

@@ -18,13 +18,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\StandyBy.Data\StandyBy.Data.csproj" />
+    <Folder Include="Data\Migrations\" />
+    <Folder Include="Migrations\" />
+    <Folder Include="Views\PedidosItens\" />
+    <Folder Include="Views\Pedidos\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Data\Migrations\" />
-    <Folder Include="Views\PedidosItens\" />
-    <Folder Include="Views\Pedidos\" />
+    <ProjectReference Include="..\StandyBy.Api\StandyBy.Api.csproj" />
   </ItemGroup>
 
 </Project>

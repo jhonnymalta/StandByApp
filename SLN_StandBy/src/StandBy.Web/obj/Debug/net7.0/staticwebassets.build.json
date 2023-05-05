@@ -1,11 +1,23 @@
 {
   "Version": 1,
-  "Hash": "ZWmYygvbfKZbWAHvxjFXMmNWPKP9zUSo2+/FCeQbbpU=",
+  "Hash": "Frbs4qjfj1SQzT1OZ3AP2qfSF4tr3aH46whyM22CwiA=",
   "Source": "StandBy.Web",
   "BasePath": "_content/StandBy.Web",
   "Mode": "Default",
   "ManifestType": "Build",
-  "ReferencedProjectsConfiguration": [],
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "C:\\2023_DotNetProjects\\008-StandByApp\\SLN_StandBy\\src\\StandyBy.Api\\StandyBy.Api.csproj",
+      "Version": 2,
+      "Source": "StandyBy.Api",
+      "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework"
+    }
+  ],
   "DiscoveryPatterns": [
     {
       "Name": "StandBy.Web\\wwwroot",

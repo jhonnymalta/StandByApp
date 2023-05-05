@@ -1,0 +1,63 @@
+
+@model StandBy.Web.DTOs.UsuarioLogin;
+
+@{
+   
+}
+
+
+
+
+
+
+
+<div class="grid  md:grid-cols-1 lg:grid-cols-5 min-w-[40%] ">
+
+
+<div class="lg:col-span-3">
+
+</div>
+  <form 
+   class="w-full shadow-xl mt-[50%] bg-white shadow-md p-8 border rounded-2xl"
+  id="account" method="post">
+                <h2 class="text-center text-2xl mb-4">Faça seu login</h2>
+                <hr />
+                <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                <div class="my-4 ">
+                    <input asp-for="Email" class="" autocomplete="username" aria-required="true" placeholder="nome@exemplo.com" />
+                    <label asp-for="Email" class="">Email</label>
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="my-4">
+                    <input asp-for="Password" class="" autocomplete="current-password" aria-required="true" placeholder="Senha" />
+                    <label asp-for="Password" class="">Password</label>
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                
+                <div>
+                    <button id="login-submit" type="submit" class="w-100 bg-[#515151] text-white px-4 py-2 rounded-md ">Entrar</button>
+                </div>
+                <div>
+                    
+                    <p>
+                        <a asp-action="Registro" asp-controller="Autenticacao">Entre com um novo usuário</a>
+                    </p>
+                    
+                </div>
+            </form>
+  
+
+
+@section Scripts {
+        <partial name="_ValidationScriptsPartial" />
+}
+
+
+
+
+
+
+
+
+
+

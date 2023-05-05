@@ -15,7 +15,7 @@ namespace StandBy.Web.Controllers
 
         public IActionResult Index()
         {
-            return RedirectToAction("Index", "Pedidos");
+            return View();
         }
 
         public IActionResult Privacy()

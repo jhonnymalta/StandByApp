@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using StandBy.Business.Models;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace StandyBy.Data.Context
 {
-    public class StandByDBContext : DbContext
+    public class StandByDBContext : IdentityDbContext
     {
         public StandByDBContext(DbContextOptions options) : base(options)
         {

@@ -8,7 +8,7 @@ using StandyBy.Api.DTOs;
 namespace StandyBy.Api.Controllers
 {
     [Route("api/produtos")]
-    [Authorize]
+    
     public class ProdutosController : MainController
     {
 
