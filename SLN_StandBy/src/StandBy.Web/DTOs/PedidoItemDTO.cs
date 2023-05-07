@@ -1,4 +1,4 @@
-﻿using StandBy.Business.Models;
+﻿using StandBy.Web.Models;
 using System.ComponentModel.DataAnnotations;
 
 namespace StandBy.Web.DTOs
@@ -11,7 +11,7 @@ namespace StandBy.Web.DTOs
         public int PedidoId { get; set; }
         public int ProdutoID { get; set; }
 
-        public IEnumerable<Produto> ListaProdutos { get; set; }
+        public List<ProdutoDTO> ListaProdutos { get; set; }
 
         [Required(ErrorMessage = "O campo {0} é obrigatório.")]
         public int Quantidade { get; set; }

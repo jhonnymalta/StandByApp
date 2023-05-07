@@ -18,30 +18,34 @@ namespace StandBy.Business.Services
             _clienteRepository = clienteRepository;
 
         }
-        public async Task Adicionar(Cliente cliente)
+        public async Task<bool> Adicionar(Cliente cliente)
         {
-            if(!ExecutarValidacao(new ClienteValidation(), cliente)) return;
+            if (!ExecutarValidacao(new ClienteValidation(), cliente)) return false;
 
-            if(_clienteRepository.Buscar(p => p.CpfCnpj == cliente.CpfCnpj).Result.Any())
+            if (_clienteRepository.Buscar(p => p.CpfCnpj == cliente.CpfCnpj).Result.Any())
             {
                 Notificar("Já Existe um cliente com este Documento.");
-                return;
+                return false;
             }
             await _clienteRepository.Adicionar(cliente);
-
+            return true;
 
         }
 
-        public async Task Atualizar(Cliente cliente)
+        public async Task<bool> Atualizar(Cliente cliente)
         {
-            if (!ExecutarValidacao(new ClienteValidation(), cliente)) return;
+            if (!ExecutarValidacao(new ClienteValidation(), cliente)) return false;
             await _clienteRepository.Atualizar(cliente);
+            return true;
 
         }
 
-        public async Task Remover(int id)
+        public async Task<bool> Remover(int id)
         {
+            var produto = await _clienteRepository.ObterPorId(id);
+            if (produto == null) return false;
             await _clienteRepository.Remover(id);
+            return true;
         }
 
         public void Dispose()

@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using StandBy.Business.Models;
+using StandBy.Web.Models;
 using StandBy.Web.DTOs;
 
 namespace StandBy.Web.AutoMapper
@@ -12,6 +12,7 @@ namespace StandBy.Web.AutoMapper
             CreateMap<Cliente, ClienteDTO>().ReverseMap();
             CreateMap<Pedido, PedidoDTO>().ReverseMap();
             CreateMap<PedidoItem, PedidoItemDTO>().ReverseMap();
+
 
 
         }

@@ -2,12 +2,13 @@
 @{
     ViewData["Title"] = "Lista de Clientes";
     Layout = "_Layout_Loged";
+    int index = 0;
 }
 
 
 
 <div>
-    <h2 class="text-center">Lista de Clientes</h2>
+    <h2 class="text-center text-4xl text-gray-500 mb-8">Lista de Clientes</h2>
 </div>
 <div>
    <ul class="nav nav-tabs">
@@ -17,37 +18,40 @@
   <li class="nav-item">
     <a class="nav-link" href="novo-cliente">Cadastrar Novo Cliente</a>
   </li>
-  
+
 </ul> 
 </div>
 <table class="table">
+
     <thead>
         <tr>
-            <th scope="col">#</th>
+            <th scope="col">Linha</th>
             <th scope="col">Nome</th>            
             <th scope="col">Documento</th>
             <th scope="col">Status</th>
             <th scope="col">Ações</th>
-           
+
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-            <th scope="row">1</th>
-            <td>@item.Nome</td>
-            <td>@item.CpfCnpj</td>
-            <td>@item.Ativo</td>
-            
-            <td>
-                    <a asp-controller="Clientes" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">Editar</a>
-                    <a asp-controller="Clientes" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Excluir</a>
-            </td>
-            </tr>
+                
+                <tr>
+                <th scope="row">x</th>
+                <td>@item.Nome</td>
+                <td>@item.CpfCnpj</td>
+                <td>@item.Ativo</td>
+
+                <td>
+                        <a asp-controller="Clientes" asp-action="Edit" asp-route-id="@item.Id" class="ml-2"><i class="fa fa-pencil text-green-600" aria-hidden="true"></i>
+    </a>
+                        <a asp-controller="Clientes" asp-action="Delete" asp-route-id="@item.Id"  class="ml-6 text-red-500"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                </td>
+                </tr>
         }        
-        
-      
+
+
     </tbody>
 </table>
 

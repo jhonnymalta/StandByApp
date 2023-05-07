@@ -11,7 +11,6 @@
 using System;
 using System.Reflection;
 
-[assembly: Microsoft.AspNetCore.Identity.UI.UIFrameworkAttribute("Bootstrap5")]
 [assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("aspnet-StandBy.Web-5b4fa2db-afef-4311-a26c-58eec2ab73a4")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("StandBy.Web")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]

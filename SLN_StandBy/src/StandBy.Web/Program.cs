@@ -7,22 +7,17 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 
-builder.Services.AddDatabaseDeveloperPageExceptionFilter();
-builder.Services.AddRazorPages();
+//builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+
+builder.Services.RegisterServices();
 
 
 builder.Services.AddAutoMapper(typeof(Program));
-
+//builder.Services.AddCors();
 builder.Services.AddControllersWithViews();
-// builder.Services.AddAuthentication("Identity.Login")
-//                 .AddCookie("Identity.Login", config =>
-//                 {
-//                     config.Cookie.Name = "Identity.Login";
-//                     config.LoginPath = "/Login";
-//                     config.AccessDeniedPath = "/Login";
-//                     config.ExpireTimeSpan = TimeSpan.FromHours(8);
-//                 });
-builder.Services.RegisterServices();
+builder.Services.AddIdentityConfiguration();
+
+
 
 
 
@@ -33,7 +28,7 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseMigrationsEndPoint();
+    //app.UseMigrationsEndPoint();
 }
 else
 {
@@ -44,8 +39,9 @@ else
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+app.UseIdentityConfiguration();
 app.UseRouting();
-// app.UseAuthentication();
+app.UseAuthentication();
 app.UseAuthorization();
 
 
@@ -57,6 +53,6 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-app.MapRazorPages();
+
 
 app.Run();

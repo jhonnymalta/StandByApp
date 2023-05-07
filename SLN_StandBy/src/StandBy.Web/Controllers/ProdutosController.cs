@@ -9,7 +9,7 @@ using StandBy.Web.Services;
 namespace StandBy.Web.Controllers
 {
 
-
+    [Authorize]
     public class ProdutosController : Controller
     {
 
@@ -43,7 +43,7 @@ namespace StandBy.Web.Controllers
 
 
 
-        [Route("novo-produto")]
+        [HttpGet("novo-produto")]
         public IActionResult Create()
         {
 
@@ -51,32 +51,30 @@ namespace StandBy.Web.Controllers
 
         }
 
-        [HttpPost]
-        [Route("novo-produto")]
-        public async Task<IActionResult> Create([FromBody] ProdutoDTO produtoDTO)
+        [HttpPost("novo-produto")]
+        public async Task<IActionResult> Create(ProdutoDTO produtoDTO)
         {
             if (!ModelState.IsValid) return View(produtoDTO);
 
             await _produtosService.Adicionar(produtoDTO);
-            return View(produtoDTO);
+            return RedirectToAction("Index", "Produtos");
 
         }
 
 
 
-        [Route("editar-produto/{id:int}")]
+        [HttpGet("editar-produto/{id:int}")]
         public async Task<IActionResult> Edit(int id)
         {
-            // var produto = _mapper.Map<ProdutoDTO>(await _produtoRepository.ObterPorId(id));
+            var produto = await _produtosService.ObterPorId(id);
+            if (produto == null)
+            {
+                return NotFound();
 
-            // if (produto == null)
-            // {
-            //     return NotFound();
-            // }
+            }
+            return View(produto);
 
-            // return View(produto);
 
-            return Ok();
         }
 
 
@@ -85,58 +83,49 @@ namespace StandBy.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> Edit(int id, ProdutoDTO produto)
         {
-            // if (id != produto.Id) return NotFound();
+            if (id != produto.Id) return NotFound();
 
-            // var produtoAtualizacao = await _produtoRepository.ObterPorId(id);
-            // produtoAtualizacao.Descricao = produto.Descricao;
-            // produtoAtualizacao.QuantidadeEstoque = produto.QuantidadeEstoque;
-            // produtoAtualizacao.Valor = produto.Valor;
+            var produtoAtualizacao = await _produtosService.ObterPorId(id);
+            produtoAtualizacao.Descricao = produto.Descricao;
+            produtoAtualizacao.QuantidadeEstoque = produto.QuantidadeEstoque;
+            produtoAtualizacao.Valor = produto.Valor;
 
-            // if (!ModelState.IsValid) return View(produto);
+            if (!ModelState.IsValid) return View(produto);
 
-            // await _produtoServices.Atualizar(_mapper.Map<Produto>(produtoAtualizacao));
+            await _produtosService.Atualizar(id, produtoAtualizacao);
 
-            // if (!OperacaoValida()) return View(produto);
 
-            // return RedirectToAction("Index");
-            return Ok();
+
+            return RedirectToAction("Index");
+
         }
 
-        [Route("excluir-produto/{id:int}")]
+        [HttpGet("excluir-produto/{id:int}")]
         public async Task<IActionResult> Delete(int id)
         {
-            // var produto = await _produtoRepository.ObterPorId(id);
+            var produto = await _produtosService.ObterPorId(id);
 
-            // if (produto == null)
-            // {
-            //     return NotFound();
-            // }
+            if (produto == null)
+            {
+                return NotFound();
+            }
+            return View(produto);
 
-            // return View(_mapper.Map<ProdutoDTO>(produto));
-            return Ok();
         }
 
 
 
-        [Route("excluir-produto/{id:int}")]
-        [HttpPost, ActionName("Delete")]
-        public async Task<IActionResult> DeleteAction(int id)
+        [HttpPost("excluir-produto/{id:int}")]
+        public async Task<IActionResult> Delete(int id, ProdutoDTO produtoDTO)
         {
-            // var produto = await _produtoRepository.ObterPorId(id);
 
-            // if (produto == null)
-            // {
-            //     return NotFound();
-            // }
+            var test = id;
 
-            // await _produtoServices.Remover(produto.Id);
+            await _produtosService.Remover(id);
 
-            // if (!OperacaoValida()) return View(produto);
+            TempData["Sucesso"] = "Produto excluido com sucesso!";
+            return RedirectToAction("Index");
 
-            // TempData["Sucesso"] = "Produto excluido com sucesso!";
-
-            // return RedirectToAction("Index");
-            return Ok();
         }
 
 

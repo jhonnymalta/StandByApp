@@ -2,6 +2,7 @@
 @{
     ViewData["Title"] = "Novo Produto";
     Layout = "_Layout_Loged";
+    
 }
 <div>
     <h2 class="text-center">Abri novo pedido</h2>
@@ -19,22 +20,22 @@
 </div>
 <div class="row mt-4">
     <div class="">
-        <form asp-action="Create" >
+        <form asp-action="Create" method="post" >
 
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
             <div class="  mb-4 ">
                 <label class="mb-2">Selecione para qual cliente</label>
                 <div class="d-flex flex-row ">
-                <select asp-for="ClienteId" class="form-control me-2" style="width: 300px;">
-                        @foreach (var item in @Model.ListaIdCliente)
+                <select asp-for="ClienteId" class="bg-gray-200 border border-gray-300 text-gray-900 rounded-lg pl-4" style="width: 300px;">
+                        @foreach (var item in @Model.ListaDeCliente)
                         {
                                 <option asp-for="@Model.ClienteId" value="@item.Id">@item.Nome</option>
 
                         }
                 </select>
                  
-                <input type="submit" value="Abrir Pedido" class="btn btn-primary" />
+                <input type="submit" value="Incluir" class="bg-[#00a878] hover:bg-[#00a844] px-4 text-white rounded-lg ml-4" />
                 <a class="btn btn-danger ms-auto " asp-action="Index">Cancelar</a>
                 
                 </div>

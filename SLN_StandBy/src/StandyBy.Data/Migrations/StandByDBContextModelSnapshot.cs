@@ -239,9 +239,6 @@ namespace StandyBy.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<int>("PedidoId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.ToTable("Clientes", (string)null);
@@ -389,7 +386,7 @@ namespace StandyBy.Data.Migrations
             modelBuilder.Entity("StandBy.Business.Models.Pedido", b =>
                 {
                     b.HasOne("StandBy.Business.Models.Cliente", "Cliente")
-                        .WithMany("Pedido")
+                        .WithMany()
                         .HasForeignKey("ClienteId")
                         .IsRequired();
 
@@ -399,21 +396,11 @@ namespace StandyBy.Data.Migrations
             modelBuilder.Entity("StandBy.Business.Models.PedidoItem", b =>
                 {
                     b.HasOne("StandBy.Business.Models.Pedido", "Pedido")
-                        .WithMany("PedidosItens")
+                        .WithMany()
                         .HasForeignKey("PedidoId")
                         .IsRequired();
 
                     b.Navigation("Pedido");
-                });
-
-            modelBuilder.Entity("StandBy.Business.Models.Cliente", b =>
-                {
-                    b.Navigation("Pedido");
-                });
-
-            modelBuilder.Entity("StandBy.Business.Models.Pedido", b =>
-                {
-                    b.Navigation("PedidosItens");
                 });
 #pragma warning restore 612, 618
         }

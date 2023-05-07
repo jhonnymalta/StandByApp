@@ -1,4 +1,4 @@
-﻿using StandBy.Business.Models;
+﻿using StandBy.Web.Models;
 using System.ComponentModel.DataAnnotations;
 
 namespace StandBy.Web.DTOs
@@ -10,7 +10,7 @@ namespace StandBy.Web.DTOs
         public int Id { get; set; }
         public int ClienteId { get; set; }
 
-        public IEnumerable<Cliente> ListaIdCliente { get; set; }
+        public IEnumerable<ClienteDTO> ListaDeCliente { get; set; }
 
         [ScaffoldColumn(false)]
         public DateTime Data { get; set; }
@@ -23,11 +23,10 @@ namespace StandBy.Web.DTOs
 
         public decimal Valor { get; set; }
 
-        //Relacao Cliente x Pedido
-        public Cliente Cliente { get; set; }
-
-        //Relacao Pedido X PedidosItens
         public IEnumerable<PedidoItem> PedidosItens { get; set; }
+
+
+
 
     }
 }

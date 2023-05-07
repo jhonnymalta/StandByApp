@@ -52,24 +52,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/2023_DotNetProjects/008-StandByApp/SLN_StandBy/src/StandBy.Web/Views/PedidosItems/AddItem.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvc0l0ZW1zXEFkZEl0ZW0uY3NodG1s
+[C:/2023_DotNetProjects/008-StandByApp/SLN_StandBy/src/StandBy.Web/Views/PedidosItens/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvc0l0ZW5zXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/2023_DotNetProjects/008-StandByApp/SLN_StandBy/src/StandBy.Web/Views/PedidosItems/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvc0l0ZW1zXENyZWF0ZS5jc2h0bWw=
+[C:/2023_DotNetProjects/008-StandByApp/SLN_StandBy/src/StandBy.Web/Views/PedidosItens/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvc0l0ZW5zXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/2023_DotNetProjects/008-StandByApp/SLN_StandBy/src/StandBy.Web/Views/PedidosItems/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvc0l0ZW1zXERlbGV0ZS5jc2h0bWw=
+[C:/2023_DotNetProjects/008-StandByApp/SLN_StandBy/src/StandBy.Web/Views/PedidosItens/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvc0l0ZW5zXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/2023_DotNetProjects/008-StandByApp/SLN_StandBy/src/StandBy.Web/Views/PedidosItems/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvc0l0ZW1zXEVkaXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/2023_DotNetProjects/008-StandByApp/SLN_StandBy/src/StandBy.Web/Views/PedidosItems/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvc0l0ZW1zXEluZGV4LmNzaHRtbA==
+[C:/2023_DotNetProjects/008-StandByApp/SLN_StandBy/src/StandBy.Web/Views/PedidosItens/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvc0l0ZW5zXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/2023_DotNetProjects/008-StandByApp/SLN_StandBy/src/StandBy.Web/Views/Pedidos/Create.cshtml]

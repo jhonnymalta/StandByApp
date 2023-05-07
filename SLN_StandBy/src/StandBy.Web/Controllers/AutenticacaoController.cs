@@ -1,8 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using StandBy.Web.DTOs;
@@ -61,15 +65,49 @@ namespace StandBy.Web.Controllers
 
             if (false) return View(usuarioLogin);
 
+
+
+            await RealizarLogin(resposta);
+
             return RedirectToAction("Index", "Produtos");
 
 
         }
-        [HttpGet]
-        [Route("sair")]
+
+        [HttpPost("sair")]
         public async Task<IActionResult> Logout()
         {
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            var storedCookies = Request.Cookies.Keys;
+            foreach (var cookies in storedCookies)
+            {
+                Response.Cookies.Delete(cookies);
+            }
             return RedirectToAction("Login", "Autenticacao");
+        }
+
+        //Realizar Login
+        private async Task RealizarLogin(UsuarioRespostaLogin respostaLogin)
+        {
+
+            var token = ObterTokenFormatado(respostaLogin.AcessToken);
+            var claims = new List<Claim>();
+            claims.Add(new Claim(type: "JWT", value: respostaLogin.AcessToken));
+            claims.AddRange(token.Claims);
+            var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+            var authProperties = new AuthenticationProperties
+            {
+                ExpiresUtc = DateTimeOffset.UtcNow.AddMinutes(20),
+                IsPersistent = true
+            };
+            await HttpContext.SignInAsync(
+                CookieAuthenticationDefaults.AuthenticationScheme,
+                new ClaimsPrincipal(claimsIdentity),
+                authProperties);
+        }
+        private static JwtSecurityToken ObterTokenFormatado(string jwtToken)
+        {
+            return new JwtSecurityTokenHandler().ReadToken(jwtToken) as JwtSecurityToken;
         }
 
     }

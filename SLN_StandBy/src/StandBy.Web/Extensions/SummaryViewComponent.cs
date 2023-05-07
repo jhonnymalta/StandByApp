@@ -16,7 +16,7 @@ namespace StandBy.Web.Extensions
         {
             var notificacoes = await Task.FromResult(_notificador.ObterNotificacoes());
 
-            notificacoes.ForEach (c => ViewData.ModelState.AddModelError(string.Empty, c.Mensagem));
+            notificacoes.ForEach(c => ViewData.ModelState.AddModelError(string.Empty, c.Mensagem));
 
             return View();
         }

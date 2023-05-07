@@ -6,29 +6,28 @@
 <h1 class="text-center">Editar Produto @Model.Nome</h1>
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Edit">
+        <form asp-action="Edit" runat=server>
 
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
 
             <div class="form-group">
                 <label asp-for="Nome" class="control-label"></label>
-                <input asp-for="Nome" class="form-control"></input>
+                <input asp-for="Nome" class="form-control bg-gray-200 border border-gray-300 text-gray-900 rounded-lg pl-4 mb-4"></input>
                 <span asp-validation-for="Nome" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="CpfCnpj" class="control-label"></label>
-                <input asp-for="CpfCnpj" class="form-control"></input>
+                <input asp-for="CpfCnpj" class="form-control bg-gray-200 border border-gray-300 text-gray-900 rounded-lg pl-4 mb-2"></input>
                 <span asp-validation-for="CpfCnpj" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="radio" asp-for="Ativo" name="status" value="Ativo">
-                <label for="at">Ativo</label><br>
-                <input type="radio" asp-for="Ativo" name="status" value="Inativo">
-                <label for="css">Inativo</label><br>
+                  <input type="radio" id="Ativo" name="Ativo" value="true" asp-for="Ativo">Ativo
+                   <input type="radio" id="Ativo" name="Ativo" value="false" asp-for="Ativo">Inativo
             </div>
+
             <div class="form-group">
-                <input type="submit" value="Atualizar" class="btn btn-primary" />
+                <input type="submit" value="Atualizar" class="text-white mt-2 bg-[#00a878] hover:bg-[#00a844] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center" />
                 <a class="btn btn-info" asp-action="Index">Voltar</a>
             </div>
         </form>

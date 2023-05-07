@@ -19,7 +19,7 @@ namespace StandyBy.Api.Data
 
 
 
-            services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<StandByDBContext>();
+            services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<StandByDBContext>().AddDefaultTokenProviders();
 
             return services;
 

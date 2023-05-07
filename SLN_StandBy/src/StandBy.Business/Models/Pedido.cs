@@ -17,8 +17,7 @@ namespace StandBy.Business.Models
         //Relacao Cliente x Pedido
         public Cliente Cliente { get; set; }
 
-        //Relacao Pedido X PedidosItens
-        public IEnumerable<PedidoItem> PedidosItens { get; set; }
+        
 
     }
 }

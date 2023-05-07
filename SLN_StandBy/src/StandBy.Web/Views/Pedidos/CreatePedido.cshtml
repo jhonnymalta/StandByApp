@@ -25,7 +25,7 @@
                 <label class="mb-2">Selecione para qual cliente</label>
                 <div class="d-flex flex-row ">
                 <select asp-for="ClienteId" class="form-control me-2" style="width: 300px;">
-                        @foreach (var item in @Model.ListaIdCliente)
+                        @foreach (var item in @Model.ListaDeCliente)
                         {
                                 <option asp-for="@Model.ClienteId" value="@item.Id">@item.Nome</option>
 

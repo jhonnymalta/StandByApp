@@ -5,20 +5,20 @@
 }
 
 <div>
-    <h2 class="text-center">Descritivo do Pedido N°: @Model.Id</h2>
+    <h2 class="text-center text-4xl text-gray-500 mb-8">Descritivo do Pedido N°: @Model.Id</h2>
 </div>
 <div>
    <ul class="nav nav-tabs">
   <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="lista-de-pedidos">Lista de Pedidos </a>
+
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="novo-pedido">Abrir um Novo Pedido</a>
+
   </li>
   </div>
 
 <div>
-    <a  asp-controller="PedidosItems" asp-action="Create" asp-route-id="@Model.Id" class="btn btn-primary">Inserir um novo item</a>
+    <a  asp-controller="PedidosItens" asp-action="Create" asp-route-id="@Model.Id" class="btn btn-primary">Inserir um novo item</a>
 </div>
 <table class="table">
     <thead>
@@ -32,7 +32,7 @@
     </thead>
     <tbody>
 
-        @foreach (var item in Model.PedidosItens)
+        @* @foreach (var item in Model.PedidosItens)
         {
                     <tr>
                     <th scope="row">1</th>
@@ -45,7 +45,7 @@
                             <a asp-controller="PedidosItems" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Excluir</a>
                     </td>
                     </tr>
-        }       
+        }        *@
 
     </tbody>
 </table>

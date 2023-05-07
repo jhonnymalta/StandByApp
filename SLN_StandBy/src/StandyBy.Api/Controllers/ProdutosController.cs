@@ -8,7 +8,7 @@ using StandyBy.Api.DTOs;
 namespace StandyBy.Api.Controllers
 {
     [Route("api/produtos")]
-    
+
     public class ProdutosController : MainController
     {
 
@@ -35,15 +35,15 @@ namespace StandyBy.Api.Controllers
         {
             var produto = _mapper.Map<ProdutoDTO>(await _produtoRepository.ObterPorId(id));
 
-            if(produto == null) return NotFound();
-            return Ok(produto); 
+            if (produto == null) return NotFound();
+            return Ok(produto);
 
         }
 
         [HttpPost]
-        public async Task<ActionResult<ProdutoDTO>> Adicionar(ProdutoDTO produtoDTO)
+        public async Task<ActionResult<ProdutoDTO>> Adicionar([FromBody] ProdutoDTO produtoDTO)
         {
-            if(!ModelState.IsValid) return BadRequest();
+            if (!ModelState.IsValid) return BadRequest();
 
             var produto = _mapper.Map<Produto>(produtoDTO);
             var result = await _produtoServices.Adicionar(produto);
@@ -53,20 +53,20 @@ namespace StandyBy.Api.Controllers
         }
 
         [HttpPut("{id:int}")]
-        public async Task<ActionResult<ProdutoDTO>> Atualizar(int id,ProdutoDTO produtoDTO)
+        public async Task<ActionResult<ProdutoDTO>> Atualizar([FromRoute] int id, [FromBody] ProdutoDTO produtoDTO)
         {
-            if (id != produtoDTO.Id) return BadRequest();
+            //if (id != produtoDTO.Id) return BadRequest();
 
             if (!ModelState.IsValid) return BadRequest();
 
             var produto = _mapper.Map<Produto>(produtoDTO);
-            var result = await _produtoServices.Adicionar(produto);
+            var result = await _produtoServices.Atualizar(produto);
             if (!result) return BadRequest();
 
             return Ok(produto);
         }
         [HttpDelete("{id:int}")]
-        public async Task<ActionResult<ProdutoDTO>> Excluir(int id)
+        public async Task<ActionResult<ProdutoDTO>> Excluir([FromRoute] int id)
         {
             var produto = _mapper.Map<ProdutoDTO>(await _produtoRepository.ObterPorId(id));
             if (produto == null) return NotFound();
@@ -75,7 +75,7 @@ namespace StandyBy.Api.Controllers
             if (!result) return BadRequest();
 
             return Ok(produto);
-            
+
         }
     }
 }

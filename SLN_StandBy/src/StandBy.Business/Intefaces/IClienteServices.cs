@@ -9,8 +9,8 @@ namespace StandBy.Business.Intefaces
 {
     public interface IClienteServices : IDisposable
     {
-        Task Adicionar(Cliente cliente);
-        Task Atualizar(Cliente cliente);
-        Task Remover(int id);
+        Task<bool> Adicionar(Cliente cliente);
+        Task<bool> Atualizar(Cliente cliente);
+        Task<bool> Remover(int id);
     }
 }

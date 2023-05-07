@@ -10,6 +10,9 @@ namespace StandyBy.Api.Extensions
         public AutoMapperConfig()
         {
             CreateMap<ProdutoDTO, Produto>().ReverseMap();
+            CreateMap<ClienteDTO, Cliente>().ReverseMap();
+            CreateMap<PedidoDTO, Pedido>().ReverseMap();
+            CreateMap<PedidoItemDTO, PedidoItem>().ReverseMap();
         }
     }
 }

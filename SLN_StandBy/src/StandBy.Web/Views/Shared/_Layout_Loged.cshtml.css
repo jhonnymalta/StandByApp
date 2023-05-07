@@ -4,7 +4,6 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  overflow-y: hidden;
 }
 .grid {
   width: 100vw;
@@ -26,7 +25,6 @@ body {
 .content {
   grid-area: content;
   padding: 20px;
-  overflow-y: auto;
 }
 
 .sidebar {

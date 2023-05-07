@@ -1,0 +1,55 @@
+﻿@model StandBy.Web.DTOs.PedidoItemDTO
+@{
+    ViewData["Title"] = "Inserir no item";
+    Layout = "_Layout_Loged";
+}
+<div>
+    <h2 class="text-center text-4xl text-gray-500 mb-8">Inserir outros produtos no pedido </h2>
+</div>
+<div>
+   <ul class="nav nav-tabs">
+  <li class="nav-item">    
+  </li>
+  <li class="nav-item">    
+  </li>
+</ul> 
+</div>
+
+
+
+<div class="row">
+    <div class="  mb-4 ">
+                <label class="mb-2 text-gray-500 text-2xl">Selecione o cliente</label>
+                <form asp-controller="PedidosItens" asp-action="Create"  method="post">
+                <div class="d-flex flex-row ">
+               <select asp-for="@Model.ProdutoID" class=" bg-gray-200 border border-gray-300 text-gray-900 rounded-lg pl-4 " >
+                @foreach (var item in @Model.ListaProdutos)
+                {
+
+                <option asp-for="ProdutoID" value="@item.Id">@item.Descricao</option>
+                                            
+                }
+                </select>
+                <input type="number" asp-for="Quantidade" class="bg-gray-200 border border-gray-300 text-gray-900 rounded-lg pl-4 " />
+                <input type="number" asp-for="Quantidade" class=" bg-gray-200 border border-gray-300 text-gray-900 rounded-lg pl-4 " />           
+                <input type="number" asp-for="Quantidade" class=" bg-gray-200 border border-gray-300 text-gray-900 rounded-lg pl-4 " />
+
+
+
+
+                <button type="submit" class="text-white bg-[#00a878] hover:bg-[#00a844] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center ">Incluir</button>
+                <a class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center " asp-route-returnUrl="@Url.Action("Index", "PedidosItens", new { area = "" })">Cancelar</a>
+
+                </div>
+                </form>
+            </div>
+</div>
+
+            @section Scripts {
+                @{
+                    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+                }
+
+
+}
+

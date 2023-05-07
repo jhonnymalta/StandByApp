@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StandyBy.Data", "src\Standy
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StandBy.Business", "src\StandBy.Business\StandBy.Business.csproj", "{363C1242-ECD3-449A-B330-A3612AAD458A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StandyBy.Api", "src\StandyBy.Api\StandyBy.Api.csproj", "{12E4D95F-856E-4105-A7E1-CA6CFC05E851}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StandyBy.Api", "src\StandyBy.Api\StandyBy.Api.csproj", "{12E4D95F-856E-4105-A7E1-CA6CFC05E851}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

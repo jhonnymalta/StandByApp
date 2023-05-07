@@ -58,7 +58,6 @@ body[b-5nsv5j3r36] {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  overflow-y: hidden;
 }
 .grid[b-5nsv5j3r36] {
   width: 100vw;
@@ -80,7 +79,6 @@ body[b-5nsv5j3r36] {
 .content[b-5nsv5j3r36] {
   grid-area: content;
   padding: 20px;
-  overflow-y: auto;
 }
 
 .sidebar[b-5nsv5j3r36] {

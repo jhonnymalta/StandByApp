@@ -8,11 +8,11 @@ using System.Text.Json;
 
 using StandBy.Web.DTOs;
 using System.Runtime.Serialization.Json;
-using Newtonsoft.Json;
+
 
 namespace StandBy.Web.Services
 {
-    public class ProdutosServices : IProdutosService
+    public class ProdutosService : IProdutosService
     {
 
 
@@ -21,7 +21,7 @@ namespace StandBy.Web.Services
 
         private readonly HttpClient _httpClient;
 
-        public ProdutosServices(HttpClient httpClient)
+        public ProdutosService(HttpClient httpClient)
         {
             _httpClient = httpClient;
         }
@@ -31,20 +31,29 @@ namespace StandBy.Web.Services
         public async Task<string> Adicionar(ProdutoDTO produtoDTO)
         {
             var content = new StringContent(
-            System.Text.Json.JsonSerializer.Serialize(produtoDTO),
-                 Encoding.UTF8,
-                 mediaType: "application/json"
-             );
-            System.Text.Json.JsonSerializer.Serialize(content);
+                JsonSerializer.Serialize(produtoDTO),
+                Encoding.UTF8,
+                mediaType: "application/json"
+            );
+            JsonSerializer.Serialize(content);
+
 
             var response = await _httpClient.PostAsync("http://localhost:5109/api/produtos", content);
             return await response.Content.ReadAsStringAsync();
 
         }
 
-        public Task Atualizar(ProdutoDTO produtoDTO)
+        public async Task<string> Atualizar(int id, ProdutoDTO produtoDTO)
         {
-            throw new NotImplementedException();
+
+            var content = new StringContent(
+                JsonSerializer.Serialize(produtoDTO),
+                Encoding.UTF8,
+                mediaType: "application/json"
+            );
+            JsonSerializer.Serialize(content);
+            var response = await _httpClient.PutAsync($"http://localhost:5109/api/produtos/{id}", content);
+            return await response.Content.ReadAsStringAsync();
         }
 
         public Task<IEnumerable<ProdutoDTO>> Buscar(Expression<Func<ProdutoDTO, bool>> predicate)
@@ -52,14 +61,15 @@ namespace StandBy.Web.Services
             throw new NotImplementedException();
         }
 
-        public void Dispose()
-        {
-            _httpClient?.Dispose();
-        }
 
-        public Task<ProdutoDTO> ObterPorId(int id)
+
+
+        public async Task<ProdutoDTO> ObterPorId(int id)
         {
-            throw new NotImplementedException();
+            var response = await _httpClient.GetAsync($"http://localhost:5109/api/produtos/{id}");
+            var str = await response.Content.ReadAsStringAsync();
+            var retorno = Newtonsoft.Json.JsonConvert.DeserializeObject<ProdutoDTO>(str);
+            return retorno;
         }
 
         public async Task<List<ProdutoDTO>> ObterTodos()
@@ -69,17 +79,17 @@ namespace StandBy.Web.Services
 
             var response = await _httpClient.GetAsync("http://localhost:5109/api/produtos");
             var str = await response.Content.ReadAsStringAsync();
-            var retorno = JsonConvert.DeserializeObject<List<ProdutoDTO>>(str);
-
-
-
+            var retorno = Newtonsoft.Json.JsonConvert.DeserializeObject<List<ProdutoDTO>>(str);
 
             return retorno;
         }
 
-        public Task Remover(int id)
+        public async Task<string> Remover(int id)
         {
-            throw new NotImplementedException();
+            var response = await _httpClient.DeleteAsync($"http://localhost:5109/api/produtos/{id}");
+            var str = await response.Content.ReadAsStringAsync();
+
+            return str;
         }
 
         public Task<int> SaveChanges()
@@ -87,9 +97,11 @@ namespace StandBy.Web.Services
             throw new NotImplementedException();
         }
 
-        Task IProdutosService.Adicionar(ProdutoDTO produtoDTO)
+        public void Dispose()
         {
-            throw new NotImplementedException();
+            _httpClient?.Dispose();
         }
+
+
     }
 }

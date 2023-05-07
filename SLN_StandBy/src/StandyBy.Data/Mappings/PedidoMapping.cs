@@ -16,12 +16,10 @@ namespace StandyBy.Data.Mappings
             builder.HasKey(p => p.Id);
             builder.Property(p => p.Valor).IsRequired().HasColumnType("decimal(18,2)");
 
-            // builder.HasOne(navigationExpression: p => p.Cliente).WithOne(navigationExpression: c => c.Pedido);
-            builder.HasOne(navigationExpression: p => p.Cliente).WithMany(navigationExpression: c => c.Pedido)
-                .HasForeignKey(p => p.ClienteId);
+            builder.HasOne(navigationExpression: p => p.Cliente);
 
-            builder.HasMany(navigationExpression: p => p.PedidosItens).WithOne(navigationExpression: c => c.Pedido)
-                .HasForeignKey(c => c.PedidoId);
+           
+                
 
 
 

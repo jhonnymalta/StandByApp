@@ -22,11 +22,11 @@ namespace StandBy.Business.Services
         {
             if (!ExecutarValidacao(new PedidoValidation(), pedido)) return false;
 
-            // if(_pedidoRepository.Buscar(p => p.Id == pedido.Id).Result.Any())
-            // {
-            //     Notificar("Já Existe um produto com este código.");
-            //     return false;
-            // }
+            if (_pedidoRepository.Buscar(p => p.Id == pedido.Id).Result.Any())
+            {
+                Notificar("Já Existe um produto com este código.");
+                return false;
+            }
             await _pedidoRepository.Adicionar(pedido);
             return true;
 

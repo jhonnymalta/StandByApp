@@ -19,6 +19,7 @@ namespace StandyBy.Data.Mappings
             builder.Property(p => p.Nome).IsRequired().HasColumnType("nvarchar(100)");
             builder.Property(p => p.Ativo).IsRequired().HasColumnType("bit");
 
+
             builder.ToTable("Clientes");
 
 

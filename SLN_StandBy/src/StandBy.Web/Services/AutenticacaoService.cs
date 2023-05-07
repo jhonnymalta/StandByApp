@@ -1,11 +1,13 @@
 using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-
+using Microsoft.AspNetCore.Authentication.Cookies;
 using StandBy.Web.DTOs;
 
 namespace StandBy.Web.Services
@@ -21,21 +23,33 @@ namespace StandBy.Web.Services
         }
 
 
-        public async Task<string> Login(UsuarioLogin usuarioLogin)
+
+        //Login User
+        public async Task<UsuarioRespostaLogin> Login(UsuarioLogin usuarioLogin)
         {
             var content = new StringContent(
                  JsonSerializer.Serialize(usuarioLogin),
                  Encoding.UTF8,
                  mediaType: "application/json"
              );
-            JsonSerializer.Serialize(content);
 
             var response = await _httpClient.PostAsync("http://localhost:5109/api/entrar", content);
 
-            return await response.Content.ReadAsStringAsync();
+
+            var options = new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true,
+            };
+
+            return JsonSerializer.Deserialize<UsuarioRespostaLogin>(await response.Content.ReadAsStringAsync(), options);
         }
 
-        public async Task<string> Registro(UsuarioRegistro usuarioRegistro)
+
+
+
+
+        //Register New User
+        public async Task<UsuarioRespostaLogin> Registro(UsuarioRegistro usuarioRegistro)
         {
 
             var content = new StringContent(
@@ -45,14 +59,17 @@ namespace StandBy.Web.Services
             );
             JsonSerializer.Serialize(content);
 
-
-
             var response = await _httpClient.PostAsync("http://localhost:5109/api/nova-conta", content);
 
-            return await response.Content.ReadAsStringAsync();
+            return JsonSerializer.Deserialize<UsuarioRespostaLogin>(await response.Content.ReadAsStringAsync());
 
 
 
         }
+
+
+
+
+
     }
 }
