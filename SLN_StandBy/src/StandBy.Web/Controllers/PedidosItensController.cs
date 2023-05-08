@@ -43,12 +43,13 @@ namespace StandBy.Web.Controllers
 
 
         [HttpGet("novo-item/{id:int}")]
-        public async Task<IActionResult> Create()
+        public async Task<IActionResult> Create(int id)
         {
 
             PedidoItemDTO pedidoItem = new PedidoItemDTO();
             pedidoItem.ListaProdutos = await _produtosServices.ObterTodos();
-            ViewData["pedido"] = pedidoItem.PedidoId;
+            pedidoItem.PedidoId = id;
+
             return View(pedidoItem);
 
         }
@@ -60,6 +61,15 @@ namespace StandBy.Web.Controllers
 
 
 
+            if (!ModelState.IsValid) return View(pedidoItemDTO);
+
+            await _pedidosItensServices.Adicionar(pedidoItemDTO);
+            return RedirectToAction("Create", "PedidosItens");
+
+        }
+        [HttpPost("add-item")]
+        public async Task<IActionResult> CreateItem(PedidoItemDTO pedidoItemDTO)
+        {
             if (!ModelState.IsValid) return View(pedidoItemDTO);
 
             await _pedidosItensServices.Adicionar(pedidoItemDTO);

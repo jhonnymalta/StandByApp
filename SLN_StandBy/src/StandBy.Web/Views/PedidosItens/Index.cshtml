@@ -2,12 +2,13 @@
 @{
     ViewData["Title"] = "Descrição do Pedido";
     Layout = "_Layout_Loged";
+    ViewBag.pedido = Url.ActionContext.RouteData.Values["id"];
 
 
 }
 
 <div>
-    <h2 class="text-center text-4xl text-gray-500 mb-8">Descritivo do Pedido N°:  </h2>
+    <h2 class="text-center text-4xl text-gray-500 mb-8">Descritivo do Pedido N°:   @Url.ActionContext.RouteData.Values["id"] </h2>
 </div>
 <div>
    <ul class="nav nav-tabs">
@@ -20,7 +21,7 @@
   </div>
 
 <div>
-    <a  asp-controller="PedidosItens" asp-action="Create" asp-route-id="@ViewData["pedido"]" class="btn btn-primary">Inserir um novo item</a>
+    <a  asp-controller="PedidosItens" asp-action="Create" asp-route-id="@Url.ActionContext.RouteData.Values["id"]" class="btn btn-primary">Inserir um novo item</a>
 </div>
 <table class="table">
     <thead>
@@ -36,17 +37,17 @@
 
         @foreach (var item in Model)
         {
-                                                    <tr>
-                                                    <th scope="row">1</th>
-                                                    <td>@item.ProdutoID</td>
-                                                    <td>@item.Quantidade</td>
-                                                    <td>@item.ValorUnitario</td>
-                                                    <td>@item.ValorTotal</td>
-                                                    <td>
+                                                                                <tr>
+                                                                                <th scope="row">1</th>
+                                                                                <td>@item.ProdutoID</td>
+                                                                                <td>@item.Quantidade</td>
+                                                                                <td>@item.ValorUnitario</td>
+                                                                                <td>@item.ValorTotal</td>
+                                                                                <td>
 
-                                                            <a asp-controller="PedidosItens" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Excluir</a>
-                                                    </td>
-                                                    </tr>
+                                                                                        <a asp-controller="PedidosItens" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Excluir</a>
+                                                                                </td>
+                                                                                </tr>
         }        
 
     </tbody>

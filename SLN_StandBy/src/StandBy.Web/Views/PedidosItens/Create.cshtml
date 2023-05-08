@@ -2,12 +2,12 @@
 @{
     ViewData["Title"] = "Inserir no item";
     Layout = "_Layout_Loged";
-    int ind = 0;
+    
     
 }
 
 <div>
-    <h2 class="text-center text-4xl text-gray-500 mb-8">Inserir outros produtos no pedido </h2>
+    <h2 class="text-center text-4xl text-gray-500 mb-8">Inserir outros produtos no pedido  @Model.PedidoId </h2>
 </div>
 <div>
    <ul class="nav nav-tabs">
@@ -23,7 +23,8 @@
 <div class="row">
     <div class="  mb-4 ">
                 <label class="mb-2 text-gray-500 text-2xl">Selecione o cliente</label>
-                <form asp-controller="PedidosItens" asp-action="Create"  method="post" >
+                <form asp-controller="PedidosItens" asp-action="CreateItem"  method="post" >
+                    <input hidden asp-for="PedidoId">
                 <div class="d-flex flex-row ">
                <select id="prodSelecao" name="ProdutoID" asp-for="ProdutoID"  class=" bg-gray-200 border border-gray-300 text-gray-900 rounded-lg pl-4 " >
                     @foreach (var item in @Model.ListaProdutos)
