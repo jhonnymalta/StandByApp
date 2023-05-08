@@ -56,10 +56,17 @@ namespace StandBy.Web.Services
             return retorno;
         }
 
-        public Task<string> Remover(int id)
+
+
+        public async Task<string> Remover(int id)
         {
-            throw new NotImplementedException();
+            var response = await _httpClient.DeleteAsync($"http://localhost:5109/api/pedidos-itens/{id}");
+            var str = await response.Content.ReadAsStringAsync();
+
+            return str;
         }
+
+
 
         public Task<int> SaveChanges()
         {

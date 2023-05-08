@@ -67,6 +67,19 @@ namespace StandBy.Web.Controllers
 
         }
 
+        [HttpPost("excluir-pedido-item/{id:int}")]
+        public async Task<IActionResult> Delete(int id, ProdutoDTO produtoDTO)
+        {
+
+            var test = id;
+
+            await _pedidosItensServices.Remover(id);
+
+            TempData["Sucesso"] = "Produto excluido com sucesso!";
+            return RedirectToAction("Index", "Produtos");
+
+        }
+
 
 
 

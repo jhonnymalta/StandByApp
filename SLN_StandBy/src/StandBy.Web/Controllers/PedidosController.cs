@@ -144,7 +144,7 @@ namespace StandBy.Web.Controllers
             await _pedidosService.Remover(id);
 
             TempData["Sucesso"] = "Pedio excluido com sucesso!";
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Pedidos");
 
         }
 
