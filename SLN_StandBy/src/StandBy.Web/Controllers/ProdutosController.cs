@@ -124,7 +124,7 @@ namespace StandBy.Web.Controllers
             await _produtosService.Remover(id);
 
             TempData["Sucesso"] = "Produto excluido com sucesso!";
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Produtos");
 
         }
 

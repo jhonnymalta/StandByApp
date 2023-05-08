@@ -270,8 +270,6 @@ namespace StandyBy.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ClienteId");
-
                     b.ToTable("Pedidos", (string)null);
                 });
 
@@ -299,8 +297,6 @@ namespace StandyBy.Data.Migrations
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("PedidoId");
 
                     b.ToTable("PedidosItens", (string)null);
                 });
@@ -381,26 +377,6 @@ namespace StandyBy.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("StandBy.Business.Models.Pedido", b =>
-                {
-                    b.HasOne("StandBy.Business.Models.Cliente", "Cliente")
-                        .WithMany()
-                        .HasForeignKey("ClienteId")
-                        .IsRequired();
-
-                    b.Navigation("Cliente");
-                });
-
-            modelBuilder.Entity("StandBy.Business.Models.PedidoItem", b =>
-                {
-                    b.HasOne("StandBy.Business.Models.Pedido", "Pedido")
-                        .WithMany()
-                        .HasForeignKey("PedidoId")
-                        .IsRequired();
-
-                    b.Navigation("Pedido");
                 });
 #pragma warning restore 612, 618
         }

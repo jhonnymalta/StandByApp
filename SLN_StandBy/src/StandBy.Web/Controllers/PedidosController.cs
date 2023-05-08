@@ -4,11 +4,12 @@ using StandBy.Web.Services;
 using AutoMapper;
 using StandBy.Web.DTOs;
 using StandBy.Web.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace StandBy.Web.Controllers
 {
 
-
+    [Authorize]
     public class PedidosController : Controller
     {
 
@@ -30,7 +31,7 @@ namespace StandBy.Web.Controllers
 
 
 
-        [Route("lista-de-pedidos")]
+        [HttpGet("lista-de-pedidos")]
         public async Task<IActionResult> Index()
         {
 
@@ -134,7 +135,7 @@ namespace StandBy.Web.Controllers
 
 
 
-        [HttpPost("excluir-produto/{id:int}")]
+        [HttpPost("excluir-pedido/{id:int}")]
         public async Task<IActionResult> Delete(int id, PedidoDTO pedidoDTO)
         {
 

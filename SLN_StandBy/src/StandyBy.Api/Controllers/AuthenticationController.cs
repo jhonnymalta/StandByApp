@@ -70,11 +70,20 @@ namespace StandyBy.Api.Controllers
         [HttpPost("entrar")]
         public async Task<ActionResult> Login([FromBody] UsuarioLogin loginUser)
         {
-            if (!ModelState.IsValid) return BadRequest();
+            if (!ModelState.IsValid) return RedirectToAction("Login");
 
             var resullt = await _signInManager.PasswordSignInAsync(loginUser.Email, loginUser.Password, isPersistent: false, lockoutOnFailure: true);
 
-            if (resullt.Succeeded) return Ok(await GerarJwt(loginUser.Email));
+
+
+            if (resullt.Succeeded)
+            {
+                return Ok(await GerarJwt(loginUser.Email));
+            }
+            else
+            {
+                return RedirectToAction("Login");
+            }
 
             if (resullt.IsLockedOut)
             {

@@ -16,13 +16,6 @@ namespace StandyBy.Data.Mappings
             builder.HasKey(p => p.Id);
             builder.Property(p => p.Valor).IsRequired().HasColumnType("decimal(18,2)");
 
-            builder.HasOne(navigationExpression: p => p.Cliente);
-
-           
-                
-
-
-
             builder.ToTable("Pedidos");
 
 

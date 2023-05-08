@@ -18,6 +18,13 @@ namespace StandBy.Business.Services
             _pedidoItemRepository = pedidoItemRepository;
 
         }
+
+        public async Task<bool> PegarTodosItemDePedido(int id)
+        {
+            await _pedidoItemRepository.ObterTodosPedidosPorId(id);
+            return true;
+        }
+
         public async Task<bool> Adicionar(PedidoItem pedidoItem)
         {
             if (!ExecutarValidacao(new PedidoItemValidation(), pedidoItem)) return false;

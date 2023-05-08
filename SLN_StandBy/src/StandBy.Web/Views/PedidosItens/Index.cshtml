@@ -1,11 +1,13 @@
-﻿@model StandBy.Web.DTOs.PedidoDTO;
+﻿@model List<StandBy.Web.DTOs.PedidoItemDTO>
 @{
     ViewData["Title"] = "Descrição do Pedido";
     Layout = "_Layout_Loged";
+
+
 }
 
 <div>
-    <h2 class="text-center text-4xl text-gray-500 mb-8">Descritivo do Pedido N°: @Model.Id</h2>
+    <h2 class="text-center text-4xl text-gray-500 mb-8">Descritivo do Pedido N°:  </h2>
 </div>
 <div>
    <ul class="nav nav-tabs">
@@ -18,7 +20,7 @@
   </div>
 
 <div>
-    <a  asp-controller="PedidosItens" asp-action="Create" asp-route-id="@Model.Id" class="btn btn-primary">Inserir um novo item</a>
+    <a  asp-controller="PedidosItens" asp-action="Create" asp-route-id="@ViewData["pedido"]" class="btn btn-primary">Inserir um novo item</a>
 </div>
 <table class="table">
     <thead>
@@ -32,20 +34,20 @@
     </thead>
     <tbody>
 
-        @* @foreach (var item in Model.PedidosItens)
+        @foreach (var item in Model)
         {
-                    <tr>
-                    <th scope="row">1</th>
-                    <td>@item.ProdutoID</td>
-                    <td>@item.Quantidade</td>
-                    <td>@item.ValorUnitario</td>
-                    <td>@item.ValorTotal</td>
-                    <td>
-                            <a asp-controller="PedidosItems" asp-action="Index" asp-route-id="@item.Id" class="btn btn-warning">Ver</a>
-                            <a asp-controller="PedidosItems" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Excluir</a>
-                    </td>
-                    </tr>
-        }        *@
+                                                <tr>
+                                                <th scope="row">1</th>
+                                                <td>@item.ProdutoID</td>
+                                                <td>@item.Quantidade</td>
+                                                <td>@item.ValorUnitario</td>
+                                                <td>@item.ValorTotal</td>
+                                                <td>
+
+                                                        <a asp-controller="PedidosItems" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Excluir</a>
+                                                </td>
+                                                </tr>
+        }        
 
     </tbody>
 </table>

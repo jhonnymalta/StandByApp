@@ -33,7 +33,7 @@ namespace StandBy.Web.Services
             JsonSerializer.Serialize(content);
 
 
-            var response = await _httpClient.PostAsync("http://localhost:5109/api/produtos", content);
+            var response = await _httpClient.PostAsync($"http://localhost:5109/api/pedidos-itens", content);
             return await response.Content.ReadAsStringAsync();
 
         }
@@ -41,6 +41,19 @@ namespace StandBy.Web.Services
         public void Dispose()
         {
             _httpClient?.Dispose();
+        }
+
+        public async Task<IEnumerable<PedidoItemDTO>> PegarTodosItemDePedido(int id)
+        {
+
+
+
+
+            var response = await _httpClient.GetAsync($"http://localhost:5109/api/pedidos-itens/{id}");
+            var str = await response.Content.ReadAsStringAsync();
+            var retorno = Newtonsoft.Json.JsonConvert.DeserializeObject<List<PedidoItemDTO>>(str);
+
+            return retorno;
         }
 
         public Task<string> Remover(int id)

@@ -7,10 +7,10 @@
 
 
 
-<div>
+<div class="mb-8">
     <h2 class="text-center text-4xl text-gray-500 mb-8">Lista de Clientes</h2>
 </div>
-<div>
+<div class="">
    <ul class="nav nav-tabs">
   <li class="nav-item">
     <a class="nav-link active" aria-current="page" href="lista-de-clientes">Clientes Cadastrados</a>
@@ -21,37 +21,56 @@
 
 </ul> 
 </div>
-<table class="table">
-
-    <thead>
-        <tr>
-            <th scope="col">Linha</th>
-            <th scope="col">Nome</th>            
-            <th scope="col">Documento</th>
-            <th scope="col">Status</th>
-            <th scope="col">Ações</th>
-
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-                
-                <tr>
-                <th scope="row">x</th>
-                <td>@item.Nome</td>
-                <td>@item.CpfCnpj</td>
-                <td>@item.Ativo</td>
-
-                <td>
-                        <a asp-controller="Clientes" asp-action="Edit" asp-route-id="@item.Id" class="ml-2"><i class="fa fa-pencil text-green-600" aria-hidden="true"></i>
-    </a>
-                        <a asp-controller="Clientes" asp-action="Delete" asp-route-id="@item.Id"  class="ml-6 text-red-500"><i class="fa fa-trash" aria-hidden="true"></i></a>
-                </td>
-                </tr>
-        }        
+<h2 class="text-2xl text-gray-500 mt-2" >Buscar por cliente</h2>
+<input id="myInput" type="text" placeholder="Procure um Cliente"
+class="bg-gray-200 border border-gray-300 text-gray-900 rounded-lg pl-4 h-10 w-[30vw] mt-2">
+<br><br>
 
 
-    </tbody>
-</table>
+<table class="table-auto w-full">
+  <thead>
+  <tr>
+    
+    <th>Nome</th>
+    <th>Documento</th>
+    <th>Status</th>    
+    <th>Ações</th>
+  </tr>
+  </thead>
+  <tbody id="myTable">
+      @foreach (var item in Model)
+      {
+                                        <tr class="bg-gray-100 hover:bg-gray-300 max-h-6 hover:text-blue-500">
+                                         <td class="pl-4">@item.Nome</td>
+                                         <td class="pl-4">@item.CpfCnpj</td>
+                                         <td class="pl-4">@item.Ativo</td>                                       
 
+                                          <td class="align-bottom px-6 py-4">
+                                            <a asp-controller="Clientes" asp-action="Edit" asp-route-id="@item.Id" class="ml-2"><i class="fa fa-pencil text-green-600 hover:text-blue-500 " aria-hidden="true"></i></a>
+                                            <a asp-controller="Clientes" asp-action="Delete" asp-route-id="@item.Id" class="ml-6 text-red-500"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                         </td>
+                                         </tr>
+                                         
+
+      }
+
+      </tbody>
+    </table>
+
+
+
+
+  @section Scripts {
+
+            <script>
+            $(document).ready(function(){
+              $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function() {
+                  $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+              });
+            });
+            </script>
+
+}

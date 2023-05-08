@@ -14,10 +14,8 @@ namespace StandBy.Business.Models
         public DateTime DataAtualizacao { get; set; }
         public decimal Valor { get; set; }
 
-        //Relacao Cliente x Pedido
-        public Cliente Cliente { get; set; }
 
-        
+
 
     }
 }

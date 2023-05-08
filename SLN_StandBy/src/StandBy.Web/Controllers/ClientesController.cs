@@ -9,7 +9,7 @@ using StandBy.Web.Services;
 namespace StandBy.Web.Controllers
 {
 
-
+    [Authorize]
     public class ClientesController : Controller
     {
 

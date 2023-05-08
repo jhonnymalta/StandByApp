@@ -22,23 +22,15 @@ namespace StandyBy.Api.Controllers
             _pedidoItemServices = pedidoItemServices;
         }
 
-        [HttpGet]
-        public async Task<IEnumerable<PedidoItemDTO>> ObterTodos()
+        [HttpGet("{id:int}")]
+        public async Task<IEnumerable<PedidoItemDTO>> ObterTodos(int id)
         {
-            var pedidosItem = _mapper.Map<IEnumerable<PedidoItemDTO>>(await _pedidoItemRepository.ObterTodos());
+            var pedidosItem = _mapper.Map<IEnumerable<PedidoItemDTO>>(await _pedidoItemRepository.ObterTodosPedidosPorId(id));
 
             return pedidosItem;
         }
 
-        [HttpGet("{id:int}")]
-        public async Task<ActionResult<PedidoItemDTO>> ObterPorId(int id)
-        {
-            var pedidoItem = _mapper.Map<PedidoItemDTO>(await _pedidoItemRepository.ObterPorId(id));
 
-            if (pedidoItem == null) return NotFound();
-            return Ok(pedidoItem);
-
-        }
 
         [HttpPost]
         public async Task<ActionResult<PedidoItemDTO>> Adicionar([FromBody] PedidoItemDTO pedidoItemDTO)
@@ -51,7 +43,7 @@ namespace StandyBy.Api.Controllers
 
             return Ok(pedidoItem);
         }
-        
+
         [HttpPut("{id:int}")]
         public async Task<ActionResult<PedidoItemDTO>> Atualizar([FromRoute] int id, [FromBody] PedidoItemDTO pedidoDTO)
         {

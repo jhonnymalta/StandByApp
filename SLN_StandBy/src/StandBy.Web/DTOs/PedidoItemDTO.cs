@@ -19,8 +19,7 @@ namespace StandBy.Web.DTOs
         public decimal ValorTotal { get; set; }
 
 
-        //Relacao PedidoItem x Pedido
-        public Pedido Pedido { get; set; }
+
 
     }
 }

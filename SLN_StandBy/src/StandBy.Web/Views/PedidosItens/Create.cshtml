@@ -2,7 +2,10 @@
 @{
     ViewData["Title"] = "Inserir no item";
     Layout = "_Layout_Loged";
+    int ind = 0;
+    
 }
+
 <div>
     <h2 class="text-center text-4xl text-gray-500 mb-8">Inserir outros produtos no pedido </h2>
 </div>
@@ -20,19 +23,31 @@
 <div class="row">
     <div class="  mb-4 ">
                 <label class="mb-2 text-gray-500 text-2xl">Selecione o cliente</label>
-                <form asp-controller="PedidosItens" asp-action="Create"  method="post">
+                <form asp-controller="PedidosItens" asp-action="Create"  method="post" >
                 <div class="d-flex flex-row ">
-               <select asp-for="@Model.ProdutoID" class=" bg-gray-200 border border-gray-300 text-gray-900 rounded-lg pl-4 " >
-                @foreach (var item in @Model.ListaProdutos)
-                {
+               <select id="prodSelecao" name="ProdutoID" asp-for="ProdutoID"  class=" bg-gray-200 border border-gray-300 text-gray-900 rounded-lg pl-4 " >
+                    @foreach (var item in @Model.ListaProdutos)
+                    {
+                                
+                                <option value="@item.Id" >@item.Descricao</option>
+                                
+                    }
 
-                <option asp-for="ProdutoID" value="@item.Id">@item.Descricao</option>
-                                            
-                }
+
                 </select>
-                <input type="number" asp-for="Quantidade" class="bg-gray-200 border border-gray-300 text-gray-900 rounded-lg pl-4 " />
-                <input type="number" asp-for="Quantidade" class=" bg-gray-200 border border-gray-300 text-gray-900 rounded-lg pl-4 " />           
-                <input type="number" asp-for="Quantidade" class=" bg-gray-200 border border-gray-300 text-gray-900 rounded-lg pl-4 " />
+                <select disabled id="valores" name="ValorUnitario" asp-for="ValorUnitario" class=" bg-gray-200 border border-gray-300 text-gray-900 rounded-lg pl-4 " >
+                    @for (int i = 0; i < @Model.ListaProdutos.Count; i++)
+                    {
+                         <option  value="@i">@Model.ListaProdutos[i].Valor</option>
+                    }
+                   
+
+
+                </select>
+
+
+                <input id="valor" type="number" asp-for="Quantidade" class="bg-gray-200 border border-gray-300 text-gray-900 rounded-lg pl-4 " />
+                          
 
 
 
@@ -44,12 +59,34 @@
                 </form>
             </div>
 </div>
-
-            @section Scripts {
-                @{
-                    await Html.RenderPartialAsync("_ValidationScriptsPartial");
-                }
-
-
+@{
+    
 }
+
+        
+        <script>
+            var preço = 0.0;
+            var total = 0.0;
+            var qtd = 0;
+            
+
+            
+           $( "#prodSelecao" ).on( "change", function() {              
+             $("#valores").val($('#prodSelecao')[0].selectedIndex).select       
+              
+
+            alert( $('#prodSelecao')[0].selectedIndex)
+            alert( $('#valor').val() )
+                    
+            } );
+       
+
+        </script>
+
+    @{        
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+
+
 

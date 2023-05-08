@@ -17,34 +17,58 @@
   </li>
   </div>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th scope="col">Nº Pedido</th>
-            <th scope="col">Código Do Cliente</th>
-            <th scope="col">Data</th>
-            <th scope="col">Status</th>
-            <th scope="col">Data Atualização</th>
-            <th scope="col">Valor</th>
-        </tr>
-    </thead>
-    <tbody>
+<h2 class="text-2xl text-gray-500 mt-2" >Buscar por Pedido</h2>
+<input id="myInput" type="text" placeholder="Procure um pedido"
+class="bg-gray-200 border border-gray-300 text-gray-900 rounded-lg pl-4 h-10 w-[30vw] mt-2">
+<br><br>
 
+
+<table class="table-auto w-full">
+  <thead>
+  <tr>
+
+    <th>N° do Cliente</th>
+    <th>Data</th>
+    <th>Status</th>    
+    <th>Valor do pedido</th>    
+    <th>Ações</th>
+  </tr>
+  </thead>
+  <tbody id="myTable">
         @foreach (var item in Model)
         {
-                                <tr>
-                                <th scope="row">1</th>
-                                <td>@item.ClienteId</td>
-                                <td>@item.Data</td>
-                                <td>@item.Status</td>
-                                <td>@item.Valor</td>
-                                <td>
-                                        <a asp-controller="PedidosItens" asp-action="Index" asp-route-id="@item.Id"   class="btn btn-warning">Editar</a>
+                            <tr class="bg-gray-100 hover:bg-gray-300 max-h-6 hover:text-blue-500">
+                            <td class="pl-4">@item.ClienteId</td>
+                            <td class="pl-4">@item.Data</td>
+                            <td class="pl-4">@item.Status</td>
+                            <td class="pl-4">@item.Valor</td>                                       
 
-                                </td>
-                                </tr>
-        }        
+                             <td class="align-bottom px-6 py-4">
+                               <a asp-controller="Pedidos" asp-action="Edit" asp-route-id="@item.Id" class="ml-2"><i class="fa fa-pencil text-green-600 hover:text-blue-500 " aria-hidden="true"></i></a>
+                               <a asp-controller="Pedidos" asp-action="Delete" asp-route-id="@item.Id" class="ml-6 text-red-500"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                            </td>
+                            </tr>
 
 
-    </tbody>
-</table>
+        }
+
+      </tbody>
+    </table>
+
+
+
+
+@section Scripts {
+
+                                            <script>
+                                            $(document).ready(function(){
+                                              $("#myInput").on("keyup", function() {
+                                                var value = $(this).val().toLowerCase();
+                                                $("#myTable tr").filter(function() {
+                                                  $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                                                });
+                                              });
+                                            });
+                                            </script>
+
+}

@@ -119,7 +119,7 @@ namespace StandBy.Web.Services
 
         public async Task<string> Remover(int id)
         {
-            var response = await _httpClient.DeleteAsync($"http://localhost:5109/api/produtos/{id}");
+            var response = await _httpClient.DeleteAsync($"http://localhost:5109/api/pedidos/{id}");
             var str = await response.Content.ReadAsStringAsync();
 
             return str;

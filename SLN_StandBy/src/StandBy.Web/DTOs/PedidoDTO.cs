@@ -23,7 +23,6 @@ namespace StandBy.Web.DTOs
 
         public decimal Valor { get; set; }
 
-        public IEnumerable<PedidoItem> PedidosItens { get; set; }
 
 
 

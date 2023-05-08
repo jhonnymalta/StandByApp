@@ -15,5 +15,6 @@ namespace StandBy.Web.Services
         Task<string> Remover(int id);
 
         Task<int> SaveChanges();
+        Task<IEnumerable<PedidoItemDTO>> PegarTodosItemDePedido(int id);
     }
 }

@@ -10,7 +10,7 @@ using StandBy.Web.DTOs;
 namespace StandBy.Web.Controllers
 {
 
-
+    [Authorize]
     public class PedidosItensController : Controller
     {
 
@@ -31,11 +31,11 @@ namespace StandBy.Web.Controllers
 
 
         [HttpGet("lista-de-item-do-pedido/{id:int}")]
-        public async Task<IActionResult> Index(int id, PedidoDTO pedidoDto)
+        public async Task<IActionResult> Index(int id)
         {
-            //pedidoDto = _mapper.Map<PedidoDTO>(await _pedidoRepository.ObterPorId(id));
+            List<PedidoItemDTO> item = _mapper.Map<List<PedidoItemDTO>>(await _pedidosItensServices.PegarTodosItemDePedido(id));
 
-            return View(pedidoDto);
+            return View(item);
 
         }
 
@@ -48,14 +48,17 @@ namespace StandBy.Web.Controllers
 
             PedidoItemDTO pedidoItem = new PedidoItemDTO();
             pedidoItem.ListaProdutos = await _produtosServices.ObterTodos();
+            ViewData["pedido"] = pedidoItem.PedidoId;
             return View(pedidoItem);
 
         }
 
 
-        [HttpPost("novo-item/{id:int}")]
+        [HttpPost("novo-item")]
         public async Task<IActionResult> Create(PedidoItemDTO pedidoItemDTO)
         {
+
+
 
             if (!ModelState.IsValid) return View(pedidoItemDTO);
 

@@ -63,7 +63,8 @@ namespace StandBy.Web.Controllers
 
             var resposta = await _autenticationService.Login(usuarioLogin);
 
-            if (false) return View(usuarioLogin);
+            if (resposta.UsuarioToken is null || resposta.AcessToken == "") return RedirectToAction("Login");
+
 
 
 
