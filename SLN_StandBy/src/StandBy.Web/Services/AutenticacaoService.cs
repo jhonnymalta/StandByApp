@@ -35,10 +35,7 @@ namespace StandBy.Web.Services
 
             var response = await _httpClient.PostAsync("http://localhost:5109/api/entrar", content);
 
-            if (!response.IsSuccessStatusCode)
-            {
-                response.Content.ToString();
-            }
+
 
 
 
