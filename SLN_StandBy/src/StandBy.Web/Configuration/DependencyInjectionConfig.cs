@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
@@ -10,14 +11,17 @@ namespace StandBy.Web.Configuration
 {
     public static class DependencyInjectionConfig
     {
-        public static void RegisterServices(this IServiceCollection services)
-        {
 
-            services.AddHttpClient<IAutenticacaoService, AutenticacaoService>();
-            services.AddHttpClient<IProdutosService, ProdutosService>();
-            services.AddHttpClient<IClientesService, ClientesService>();
-            services.AddHttpClient<IPedidosService, PedidosService>();
-            services.AddHttpClient<IPedidosItensService, PedidosItensService>();
+
+        public static void RegisterServices(this IServiceCollection services,IConfiguration configuration)
+        {
+            var appUrl = configuration.GetSection("apiUrl").Value;
+            services.AddHttpClient<IAutenticacaoService, AutenticacaoService>(config => { config.BaseAddress = new Uri(appUrl);}) ;
+            services.AddHttpClient<IProdutosService, ProdutosService>(config => { config.BaseAddress = new Uri(appUrl); });
+            services.AddHttpClient<IClientesService, ClientesService>(config => { config.BaseAddress = new Uri(appUrl); });
+            services.AddHttpClient<IPedidosService, PedidosService>(config => { config.BaseAddress = new Uri(appUrl); });
+            services.AddHttpClient<IPedidosItensService, PedidosItensService>(config => { config.BaseAddress = new Uri(appUrl); });
+            
 
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();

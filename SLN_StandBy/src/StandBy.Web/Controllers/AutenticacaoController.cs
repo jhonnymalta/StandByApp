@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+
 using StandBy.Web.DTOs;
 using StandBy.Web.Services;
 
@@ -41,7 +42,22 @@ namespace StandBy.Web.Controllers
         {
             if (!ModelState.IsValid) return View(usuarioRegistro);
             var resposta = await _autenticationService.Registro(usuarioRegistro);
-            if (false) return View(usuarioRegistro);
+
+           
+
+            UsuarioLogin usuarioLogin = new UsuarioLogin();
+            usuarioLogin.Email = usuarioRegistro.Email;
+            usuarioLogin.Password = usuarioRegistro.Password;
+
+            
+            var resposta2 = await _autenticationService.Login(usuarioLogin);
+
+            if (resposta2.UsuarioToken != null)
+            {
+                await RealizarLogin(resposta2);
+                return RedirectToAction("Index", "Produtos");
+
+            }
 
             return RedirectToAction("Index", "Produtos");
         }
@@ -64,9 +80,6 @@ namespace StandBy.Web.Controllers
             var resposta = await _autenticationService.Login(usuarioLogin);
 
             if (resposta.UsuarioToken is null || resposta.AcessToken == "") return RedirectToAction("Login");
-
-
-
 
             await RealizarLogin(resposta);
 

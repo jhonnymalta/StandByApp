@@ -8,6 +8,8 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using StandBy.Web.DTOs;
 
 namespace StandBy.Web.Services
@@ -33,12 +35,7 @@ namespace StandBy.Web.Services
                  mediaType: "application/json"
              );
 
-            var response = await _httpClient.PostAsync("http://localhost:5109/api/entrar", content);
-
-
-
-
-
+            var response = await _httpClient.PostAsync( "entrar", content);
 
             var options = new JsonSerializerOptions
             {
@@ -51,9 +48,9 @@ namespace StandBy.Web.Services
 
 
 
+        //Register User
 
-        //Register New User
-        public async Task<UsuarioRespostaLogin> Registro(UsuarioRegistro usuarioRegistro)
+        public async  Task<UsuarioRespostaLogin> Registro(UsuarioRegistro usuarioRegistro)
         {
 
             var content = new StringContent(
@@ -63,17 +60,16 @@ namespace StandBy.Web.Services
             );
             JsonSerializer.Serialize(content);
 
-            var response = await _httpClient.PostAsync("http://localhost:5109/api/nova-conta", content);
+            var response = await _httpClient.PostAsync("nova-conta", content);
 
+
+            
             return JsonSerializer.Deserialize<UsuarioRespostaLogin>(await response.Content.ReadAsStringAsync());
-
-
 
         }
 
 
 
-
-
+        
     }
 }

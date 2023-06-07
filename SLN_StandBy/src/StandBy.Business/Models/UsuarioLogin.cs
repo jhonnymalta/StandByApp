@@ -24,6 +24,7 @@ namespace StandBy.Business.Models
         public string AcessToken { get; set; }
         public double ExpiresIn { get; set; }
         public UsuarioToken UsuarioToken { get; set; }
+       
 
     }
     public class UsuarioToken

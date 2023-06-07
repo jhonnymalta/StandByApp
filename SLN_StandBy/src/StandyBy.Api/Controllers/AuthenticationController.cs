@@ -54,11 +54,17 @@ namespace StandyBy.Api.Controllers
             var result = await _userManager.CreateAsync(user, registerUser.Password);
             if (result.Succeeded)
             {
-
+                
                 return Ok(await GerarJwt(registerUser.Email));
+               
             }
+            else{
+               
+                return BadRequest(result.Errors);
+            }
+           
 
-            return Ok(registerUser);
+           
         }
 
 

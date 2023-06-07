@@ -8,8 +8,20 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 //builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+//builder.Services.AddCors(options =>
+//{
+//    options.AddPolicy("AllowAll",
+//        builder =>
+//        {
+//            builder
+//            .AllowAnyOrigin()
+//            .AllowAnyMethod()
+//            .AllowAnyHeader()
+//            .AllowCredentials();
+//        });
+//});
 
-builder.Services.RegisterServices();
+builder.Services.RegisterServices(builder.Configuration);
 
 
 builder.Services.AddAutoMapper(typeof(Program));

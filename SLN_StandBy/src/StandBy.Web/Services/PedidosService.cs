@@ -38,7 +38,7 @@ namespace StandBy.Web.Services
             JsonSerializer.Serialize(content);
 
 
-            var response = await _httpClient.PostAsync("http://localhost:5109/api/pedidos", content);
+            var response = await _httpClient.PostAsync("pedidos", content);
             return await response.Content.ReadAsStringAsync();
 
         }
@@ -58,7 +58,7 @@ namespace StandBy.Web.Services
                 mediaType: "application/json"
             );
             JsonSerializer.Serialize(content);
-            var response = await _httpClient.PutAsync($"http://localhost:5109/api/pedidos/{id}", content);
+            var response = await _httpClient.PutAsync($"pedidos/{id}", content);
             return await response.Content.ReadAsStringAsync();
         }
 
@@ -85,7 +85,7 @@ namespace StandBy.Web.Services
 
         public async Task<PedidoDTO> ObterPorId(int id)
         {
-            var response = await _httpClient.GetAsync($"http://localhost:5109/api/pedidos/{id}");
+            var response = await _httpClient.GetAsync($"pedidos/{id}");
             var str = await response.Content.ReadAsStringAsync();
             var retorno = Newtonsoft.Json.JsonConvert.DeserializeObject<PedidoDTO>(str);
             return retorno;
@@ -104,7 +104,7 @@ namespace StandBy.Web.Services
             DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(List<PedidoDTO>));
 
 
-            var response = await _httpClient.GetAsync("http://localhost:5109/api/pedidos");
+            var response = await _httpClient.GetAsync("pedidos");
             var str = await response.Content.ReadAsStringAsync();
             var retorno = Newtonsoft.Json.JsonConvert.DeserializeObject<List<PedidoDTO>>(str);
 
@@ -119,7 +119,7 @@ namespace StandBy.Web.Services
 
         public async Task<string> Remover(int id)
         {
-            var response = await _httpClient.DeleteAsync($"http://localhost:5109/api/pedidos/{id}");
+            var response = await _httpClient.DeleteAsync($"pedidos/{id}");
             var str = await response.Content.ReadAsStringAsync();
 
             return str;
@@ -132,7 +132,7 @@ namespace StandBy.Web.Services
         {
             DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(List<ClienteDTO>));
 
-            var response = await _httpClient.GetAsync("http://localhost:5109/api/clientes");
+            var response = await _httpClient.GetAsync("clientes");
             var str = await response.Content.ReadAsStringAsync();
             var retorno = Newtonsoft.Json.JsonConvert.DeserializeObject<IEnumerable<ClienteDTO>>(str);
 

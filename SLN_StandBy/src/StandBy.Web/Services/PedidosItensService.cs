@@ -33,7 +33,7 @@ namespace StandBy.Web.Services
             JsonSerializer.Serialize(content);
 
 
-            var response = await _httpClient.PostAsync($"http://localhost:5109/api/pedidos-itens", content);
+            var response = await _httpClient.PostAsync($"pedidos-itens", content);
             return await response.Content.ReadAsStringAsync();
 
         }
@@ -49,7 +49,7 @@ namespace StandBy.Web.Services
 
 
 
-            var response = await _httpClient.GetAsync($"http://localhost:5109/api/pedidos-itens/{id}");
+            var response = await _httpClient.GetAsync($"pedidos-itens/{id}");
             var str = await response.Content.ReadAsStringAsync();
             var retorno = Newtonsoft.Json.JsonConvert.DeserializeObject<List<PedidoItemDTO>>(str);
 
@@ -60,7 +60,7 @@ namespace StandBy.Web.Services
 
         public async Task<string> Remover(int id)
         {
-            var response = await _httpClient.DeleteAsync($"http://localhost:5109/api/pedidos-itens/{id}");
+            var response = await _httpClient.DeleteAsync($"pedidos-itens/{id}");
             var str = await response.Content.ReadAsStringAsync();
 
             return str;

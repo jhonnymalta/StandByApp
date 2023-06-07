@@ -38,7 +38,7 @@ namespace StandBy.Web.Services
             JsonSerializer.Serialize(content);
 
 
-            var response = await _httpClient.PostAsync("http://localhost:5109/api/produtos", content);
+            var response = await _httpClient.PostAsync("produtos", content);
             return await response.Content.ReadAsStringAsync();
 
         }
@@ -52,7 +52,7 @@ namespace StandBy.Web.Services
                 mediaType: "application/json"
             );
             JsonSerializer.Serialize(content);
-            var response = await _httpClient.PutAsync($"http://localhost:5109/api/produtos/{id}", content);
+            var response = await _httpClient.PutAsync($"produtos/{id}", content);
             return await response.Content.ReadAsStringAsync();
         }
 
@@ -66,7 +66,7 @@ namespace StandBy.Web.Services
 
         public async Task<ProdutoDTO> ObterPorId(int id)
         {
-            var response = await _httpClient.GetAsync($"http://localhost:5109/api/produtos/{id}");
+            var response = await _httpClient.GetAsync($"produtos/{id}");
             var str = await response.Content.ReadAsStringAsync();
             var retorno = Newtonsoft.Json.JsonConvert.DeserializeObject<ProdutoDTO>(str);
             return retorno;
@@ -77,7 +77,7 @@ namespace StandBy.Web.Services
             DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(List<ProdutoDTO>));
 
 
-            var response = await _httpClient.GetAsync("http://localhost:5109/api/produtos");
+            var response = await _httpClient.GetAsync("produtos");
             var str = await response.Content.ReadAsStringAsync();
             var retorno = Newtonsoft.Json.JsonConvert.DeserializeObject<List<ProdutoDTO>>(str);
 
@@ -86,7 +86,7 @@ namespace StandBy.Web.Services
 
         public async Task<string> Remover(int id)
         {
-            var response = await _httpClient.DeleteAsync($"http://localhost:5109/api/produtos/{id}");
+            var response = await _httpClient.DeleteAsync($"produtos/{id}");
             var str = await response.Content.ReadAsStringAsync();
 
             return str;
