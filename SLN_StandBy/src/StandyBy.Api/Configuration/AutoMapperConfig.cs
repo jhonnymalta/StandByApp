@@ -13,6 +13,7 @@ namespace StandyBy.Api.Extensions
             CreateMap<ClienteDTO, Cliente>().ReverseMap();
             CreateMap<PedidoDTO, Pedido>().ReverseMap();
             CreateMap<PedidoItemDTO, PedidoItem>().ReverseMap();
+            CreateMap<UsuarioRegistroDTO, UsuarioRegistro>().ReverseMap();
         }
     }
 }

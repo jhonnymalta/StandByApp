@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DevIO.Api.Extensions;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -19,7 +20,9 @@ namespace StandyBy.Api.Data
 
 
 
-            services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<StandByDBContext>().AddDefaultTokenProviders();
+            services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<StandByDBContext>()
+                .AddErrorDescriber<IdentityMensagensPortugues>()
+                .AddDefaultTokenProviders();
 
             return services;
 

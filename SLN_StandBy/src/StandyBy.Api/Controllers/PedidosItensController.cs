@@ -11,15 +11,16 @@ namespace StandyBy.Api.Controllers
 
     public class PedidosItensController : MainController
     {
-
+       
         private readonly IPedidoItemRepository _pedidoItemRepository;
         private readonly IPedidoItemServices _pedidoItemServices;
         private readonly IMapper _mapper;
-        public PedidosItensController(IPedidoItemRepository pedidoItemRepository, IMapper mapper, IPedidoItemServices pedidoItemServices)
+        public PedidosItensController( IPedidoItemRepository pedidoItemRepository, IMapper mapper, IPedidoItemServices pedidoItemServices)
         {
             _pedidoItemRepository = pedidoItemRepository;
             _mapper = mapper;
             _pedidoItemServices = pedidoItemServices;
+            
         }
 
         [HttpGet("{id:int}")]

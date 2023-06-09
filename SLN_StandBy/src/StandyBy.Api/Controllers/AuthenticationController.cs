@@ -14,23 +14,27 @@ using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using StandBy.Business.Intefaces;
 using StandBy.Business.Models;
+using StandBy.Business.Models.Validations;
 using StandyBy.Api.DTOs;
 using StandyBy.Api.Extensions;
 
 namespace StandyBy.Api.Controllers
 {
-    [Route("api")]
+    [Route("api/[controller]")]
+    [ApiController]
     public class AuthenticationController : MainController
     {
+       
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly UserManager<IdentityUser> _userManager;
         private readonly AppSettings _appSettings;
 
-        public AuthenticationController(IOptions<AppSettings> appSettings, IMapper mapper, SignInManager<IdentityUser> signInManager, UserManager<IdentityUser> userManager)
+        public AuthenticationController( IOptions<AppSettings> appSettings, IMapper mapper, SignInManager<IdentityUser> signInManager, UserManager<IdentityUser> userManager)
         {
             _signInManager = signInManager;
             _userManager = userManager;
             _appSettings = appSettings.Value;
+            
         }
 
 
@@ -42,7 +46,7 @@ namespace StandyBy.Api.Controllers
             )
         {
 
-            if (!ModelState.IsValid) return BadRequest();
+            if (!ModelState.IsValid) return CustomResponse(ModelState);
 
             var user = new IdentityUser
             {
@@ -52,19 +56,22 @@ namespace StandyBy.Api.Controllers
             };
 
             var result = await _userManager.CreateAsync(user, registerUser.Password);
+
             if (result.Succeeded)
             {
-                
                 return Ok(await GerarJwt(registerUser.Email));
-               
             }
-            else{
-               
-                return BadRequest(result.Errors);
-            }
-           
 
-           
+            foreach (var error in result.Errors)
+            {
+                AdicionarErroProcessamento(error.Description);
+            }
+
+            return CustomResponse();
+
+
+
+
         }
 
 
@@ -76,30 +83,28 @@ namespace StandyBy.Api.Controllers
         [HttpPost("entrar")]
         public async Task<ActionResult> Login([FromBody] UsuarioLogin loginUser)
         {
-            if (!ModelState.IsValid) return RedirectToAction("Login");
+            if (!ModelState.IsValid) return CustomResponse(ModelState);
 
-            var resullt = await _signInManager.PasswordSignInAsync(loginUser.Email, loginUser.Password, isPersistent: false, lockoutOnFailure: true);
+            var result = await _signInManager.PasswordSignInAsync(loginUser.Email, loginUser.Password,
+                false, true);
 
-
-
-            if (resullt.Succeeded)
+            if (result.Succeeded)
             {
-                return Ok(await GerarJwt(loginUser.Email));
-            }
-            else
-            {
-                return RedirectToAction("Login");
+                return CustomResponse(await GerarJwt(loginUser.Email));
             }
 
-            if (resullt.IsLockedOut)
+            if (result.IsLockedOut)
             {
-                return BadRequest("Usuário bloqueado");
+                AdicionarErroProcessamento("Usuário temporariamente bloqueado por tentativas inválidas");
+                return CustomResponse();
             }
-            return Ok(loginUser);
+
+            AdicionarErroProcessamento("Usuário ou Senha incorretos");
+            return CustomResponse();
 
         }
 
-
+       
         private async Task<UsuarioRespostaLogin> GerarJwt(string email)
         {
             var user = await _userManager.FindByEmailAsync(email);

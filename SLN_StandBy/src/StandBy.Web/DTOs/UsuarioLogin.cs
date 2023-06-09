@@ -1,3 +1,4 @@
+using StandBy.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -22,7 +23,9 @@ namespace StandBy.Web.DTOs
         public string AcessToken { get; set; }
         public double ExpiresIn { get; set; }
         public UsuarioToken UsuarioToken { get; set; }
-       
+
+        public ResponseResult ResponseResult { get; set; }
+
 
     }
     public class UsuarioToken

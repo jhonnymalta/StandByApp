@@ -46,13 +46,13 @@ namespace StandyBy.Api.Controllers
         [HttpPost]
         public async Task<ActionResult<ClienteDTO>> Adicionar([FromBody] ClienteDTO clienteDTO)
         {
-            if (!ModelState.IsValid) return BadRequest();
+            if (!ModelState.IsValid) return CustomResponse(ModelState);
 
             var cliente = _mapper.Map<Cliente>(clienteDTO);
             var result = await _clienteServices.Adicionar(cliente);
             if (!result) return BadRequest();
 
-            return Ok(cliente);
+            return CustomResponse(result);
         }
 
         [HttpPut("{id:int}")]

@@ -9,18 +9,21 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using StandBy.Business.Intefaces;
 
+using StandBy.Business.Notificacoes;
 using StandBy.Web.DTOs;
 using StandBy.Web.Services;
 
 namespace StandBy.Web.Controllers
 {
 
-    public class AutenticacaoController : Controller
+    public class AutenticacaoController : MainController
     {
 
 
         private readonly IAutenticacaoService _autenticationService;
+        protected readonly INotificador _notificador;
 
         public AutenticacaoController(IAutenticacaoService autenticacaoService)
         {
@@ -41,29 +44,19 @@ namespace StandBy.Web.Controllers
         public async Task<IActionResult> Registro(UsuarioRegistro usuarioRegistro)
         {
             if (!ModelState.IsValid) return View(usuarioRegistro);
+
+
+            //---API REGISTRO
             var resposta = await _autenticationService.Registro(usuarioRegistro);
-
            
+            if(ResponsePossuiErros(resposta.ResponseResult)) return View(usuarioRegistro);
 
-            UsuarioLogin usuarioLogin = new UsuarioLogin();
-            usuarioLogin.Email = usuarioRegistro.Email;
-            usuarioLogin.Password = usuarioRegistro.Password;
-
-            
-            var resposta2 = await _autenticationService.Login(usuarioLogin);
-
-            if (resposta2.UsuarioToken != null)
-            {
-                await RealizarLogin(resposta2);
-                return RedirectToAction("Index", "Produtos");
-
-            }
+            await RealizarLogin(resposta);
 
             return RedirectToAction("Index", "Produtos");
         }
 
-        [HttpGet]
-        [Route("login")]
+        [HttpGet("login")]        
         public IActionResult Login()
         {
             return View("Login");
@@ -71,15 +64,14 @@ namespace StandBy.Web.Controllers
 
 
 
-        [HttpPost]
-        [Route("login")]
+        [HttpPost("login")]        
         public async Task<IActionResult> Login(UsuarioLogin usuarioLogin)
         {
             if (!ModelState.IsValid) return View(usuarioLogin);
 
-            var resposta = await _autenticationService.Login(usuarioLogin);
+            var resposta = await _autenticationService.Login(usuarioLogin);           
 
-            if (resposta.UsuarioToken is null || resposta.AcessToken == "") return RedirectToAction("Login");
+            if (ResponsePossuiErros(resposta.ResponseResult)) return View(usuarioLogin);
 
             await RealizarLogin(resposta);
 
@@ -122,6 +114,12 @@ namespace StandBy.Web.Controllers
         private static JwtSecurityToken ObterTokenFormatado(string jwtToken)
         {
             return new JwtSecurityTokenHandler().ReadToken(jwtToken) as JwtSecurityToken;
+        }
+
+
+        protected IEnumerable<Notificacao> GetErros()
+        {
+            return _notificador.ObterNotificacoes();
         }
 
     }

@@ -1,6 +1,7 @@
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
@@ -60,6 +61,11 @@ builder.Services.AddIdentityConfiguration(builder.Configuration);
 builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.AddResponseCaching();
 builder.Services.ResolveDependencies();
+builder.Services.AddMvc();
+//builder.Services.Configure<ApiBehaviorOptions>(options =>
+//{
+//    options.SuppressModelStateInvalidFilter = true;
+//});
 builder.Services.AddSwaggerGen(c => c.SwaggerDoc(name: "v1", new Microsoft.OpenApi.Models.OpenApiInfo
 {
     Title = "App para avaliação StandBy",
