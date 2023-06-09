@@ -39,6 +39,11 @@ namespace StandBy.Web.Services
 
 
             var response = await _httpClient.PostAsync("clientes", content);
+
+            if (!response.IsSuccessStatusCode)
+            {
+                return "false";
+            }
             return await response.Content.ReadAsStringAsync();
 
         }

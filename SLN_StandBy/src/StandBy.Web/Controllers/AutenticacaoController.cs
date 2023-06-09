@@ -50,8 +50,13 @@ namespace StandBy.Web.Controllers
             var resposta = await _autenticationService.Registro(usuarioRegistro);
            
             if(ResponsePossuiErros(resposta.ResponseResult)) return View(usuarioRegistro);
-
-            await RealizarLogin(resposta);
+            var usuarioLogin = new UsuarioLogin
+            {
+                Email = usuarioRegistro.Email,
+                Password = usuarioRegistro.Password,
+            };
+            var resposta2 = await _autenticationService.Login(usuarioLogin);
+            await RealizarLogin(resposta2);
 
             return RedirectToAction("Index", "Produtos");
         }

@@ -20,5 +20,6 @@ namespace StandyBy.Api.DTOs
 
         public int QuantidadeEstoque { get; set; }
         public Decimal Valor { get; set; }
+        
     }
 }

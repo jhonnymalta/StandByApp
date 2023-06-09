@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "1SxJWn4/vBLAGTbbjX7N7vsrcpZBuNE3ao3c9ceSdew=",
+  "Hash": "hkxmKHx2P+TxbTHu7aYjku4otAB/6TXrCy7h9NgNhEA=",
   "Source": "StandBy.Web",
   "BasePath": "_content/StandBy.Web",
   "Mode": "Default",
@@ -996,6 +996,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Identity": "C:\\Users\\desenvolvedor15\\source\\repos\\StandByApp\\SLN_StandBy\\src\\StandBy.Web\\wwwroot\\lib\\jquery\\dist\\jquery.mask.js",
+      "SourceId": "StandBy.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\desenvolvedor15\\source\\repos\\StandByApp\\SLN_StandBy\\src\\StandBy.Web\\wwwroot\\",
+      "BasePath": "_content/StandBy.Web",
+      "RelativePath": "lib/jquery/dist/jquery.mask.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.mask.js"
+    },
+    {
+      "Identity": "C:\\Users\\desenvolvedor15\\source\\repos\\StandByApp\\SLN_StandBy\\src\\StandBy.Web\\wwwroot\\lib\\jquery\\dist\\jquery.mask.min.js",
+      "SourceId": "StandBy.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\desenvolvedor15\\source\\repos\\StandByApp\\SLN_StandBy\\src\\StandBy.Web\\wwwroot\\",
+      "BasePath": "_content/StandBy.Web",
+      "RelativePath": "lib/jquery/dist/jquery.mask.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.mask.min.js"
     },
     {
       "Identity": "C:\\Users\\desenvolvedor15\\source\\repos\\StandByApp\\SLN_StandBy\\src\\StandBy.Web\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",

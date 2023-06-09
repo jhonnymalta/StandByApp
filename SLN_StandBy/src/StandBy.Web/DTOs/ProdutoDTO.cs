@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using StandBy.Web.Models;
+using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
 namespace StandBy.Web.DTOs
@@ -21,5 +22,6 @@ namespace StandBy.Web.DTOs
         public int QuantidadeEstoque { get; set; }
 
         public Decimal Valor { get; set; }
+        public ResponseResult ResponseResult { get; set; }
     }
 }

@@ -2,15 +2,18 @@
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
+using StandBy.Business.Models;
 using StandBy.Web.DTOs;
+using StandBy.Web.Models;
 using StandBy.Web.Services;
 
 namespace StandBy.Web.Controllers
 {
 
     [Authorize]
-    public class ProdutosController : Controller
+    public class ProdutosController : MainController
     {
 
 
@@ -54,9 +57,20 @@ namespace StandBy.Web.Controllers
         [HttpPost("novo-produto")]
         public async Task<IActionResult> Create(ProdutoDTO produtoDTO)
         {
+
+           
             if (!ModelState.IsValid) return View(produtoDTO);
 
-            await _produtosService.Adicionar(produtoDTO);
+            var resposta = await _produtosService.Adicionar(produtoDTO);
+
+            if (resposta.Contains("false")) {
+
+                ViewBag.Country =  "O código do produto já está cadastrado";
+                return View(produtoDTO);
+            }
+            
+           
+           
             return RedirectToAction("Index", "Produtos");
 
         }

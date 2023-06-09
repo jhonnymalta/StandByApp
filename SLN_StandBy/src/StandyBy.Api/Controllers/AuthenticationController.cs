@@ -59,7 +59,7 @@ namespace StandyBy.Api.Controllers
 
             if (result.Succeeded)
             {
-                return Ok(await GerarJwt(registerUser.Email));
+                return CustomResponse(await GerarJwt(registerUser.Email));
             }
 
             foreach (var error in result.Errors)

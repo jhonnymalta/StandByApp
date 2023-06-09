@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace StandBy.Business.Services
 {
@@ -21,12 +22,7 @@ namespace StandBy.Business.Services
         public async Task<bool> Adicionar(Produto produto)
         {
             if(!ExecutarValidacao(new ProdutoValidation(), produto)) return false;
-
-            if(_produtoRepository.Buscar(p => p.Codigo == produto.Codigo).Result.Any())
-            {
-                Notificar("Já Existe um produto com este código.");
-                return false;
-            }
+           
             await _produtoRepository.Adicionar(produto);
             return true;
 

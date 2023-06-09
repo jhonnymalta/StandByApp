@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using StandBy.Business.Intefaces;
 using StandBy.Business.Models;
 using StandyBy.Api.DTOs;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace StandyBy.Api.Controllers
 {
@@ -46,8 +47,23 @@ namespace StandyBy.Api.Controllers
             if (!ModelState.IsValid) return BadRequest();
 
             var produto = _mapper.Map<Produto>(produtoDTO);
+
+            //validacoes
+            var todosProdutos = await _produtoRepository.ObterTodos();
+            var igual = todosProdutos.FirstOrDefault(x => x.Codigo == produto.Codigo);
+            if (igual != null)
+            {
+                return BadRequest(igual);
+            }
+            
+           
+
+            
+
             var result = await _produtoServices.Adicionar(produto);
-            if (!result) return BadRequest();
+            
+           
+            if (!result) return CustomResponse();
 
             return Ok(produto);
         }

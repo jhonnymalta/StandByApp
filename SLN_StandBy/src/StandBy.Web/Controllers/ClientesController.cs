@@ -6,6 +6,7 @@ using Newtonsoft.Json;
 using StandBy.Web.DTOs;
 using StandBy.Web.Services;
 
+
 namespace StandBy.Web.Controllers
 {
 
@@ -52,11 +53,17 @@ namespace StandBy.Web.Controllers
         }
 
         [HttpPost("novo-cliente")]
-        public async Task<IActionResult> Create(ClienteDTO clienteDTO)
+        public async Task<ActionResult> Create(ClienteDTO clienteDTO)
         {
             if (!ModelState.IsValid) return View(clienteDTO);
 
-            await _clientesService.Adicionar(clienteDTO);
+            var resposta = await _clientesService.Adicionar(clienteDTO);
+            if (resposta.Contains("false"))
+            {
+
+                ViewBag.Country = "Este documento já está cadastrado.";
+                return View(clienteDTO);
+            }
             return RedirectToAction("Index", "clientes");
 
         }

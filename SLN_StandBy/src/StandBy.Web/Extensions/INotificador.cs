@@ -1,4 +1,6 @@
-﻿using StandBy.Business.Notificacoes;
+﻿
+
+using StandBy.Business.Notificacoes;
 
 namespace StandBy.Web.Extensions
 {

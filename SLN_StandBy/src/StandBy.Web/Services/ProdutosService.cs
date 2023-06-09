@@ -8,11 +8,12 @@ using System.Text.Json;
 
 using StandBy.Web.DTOs;
 using System.Runtime.Serialization.Json;
-
+using Microsoft.Extensions.Options;
+using StandBy.Web.Models;
 
 namespace StandBy.Web.Services
 {
-    public class ProdutosService : IProdutosService
+    public class ProdutosService : Service, IProdutosService
     {
 
 
@@ -39,7 +40,14 @@ namespace StandBy.Web.Services
 
 
             var response = await _httpClient.PostAsync("produtos", content);
+            if(!response.IsSuccessStatusCode)
+            {
+                return "false";
+            }
+
+
             return await response.Content.ReadAsStringAsync();
+
 
         }
 
