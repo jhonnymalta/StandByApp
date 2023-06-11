@@ -8,4 +8,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = StandBy.Business
-build_property.ProjectDir = D:\DotnetApps\03-standbyTest\StandByApp\SLN_StandBy\src\StandBy.Business\
+build_property.ProjectDir = d:\DotnetApps\03-standbyTest\standbyApp\sln_standby\src\StandBy.Business\
