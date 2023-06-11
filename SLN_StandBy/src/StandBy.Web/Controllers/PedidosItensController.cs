@@ -7,6 +7,7 @@ using StandBy.Web.Services;
 using StandBy.Web.DTOs;
 
 
+
 namespace StandBy.Web.Controllers
 {
 
@@ -55,8 +56,8 @@ namespace StandBy.Web.Controllers
         }
 
 
-        [HttpPost("novo-item")]
-        public async Task<IActionResult> Create(PedidoItemDTO pedidoItemDTO)
+        [HttpPost("novo-item/{id:int}")]
+        public async Task<ActionResult> Create(int id,PedidoItemDTO pedidoItemDTO)
         {
 
 
@@ -68,25 +69,35 @@ namespace StandBy.Web.Controllers
 
         }
         [HttpPost("add-item")]
-        public async Task<IActionResult> CreateItem(PedidoItemDTO pedidoItemDTO)
+        public async Task<ActionResult> CreateItem(PedidoItemDTO pedidoItemDTO)
         {
             if (!ModelState.IsValid) return View(pedidoItemDTO);
 
             await _pedidosItensServices.Adicionar(pedidoItemDTO);
-            return RedirectToAction("Create", "PedidosItens");
+
+           
+            return Redirect($"lista-de-item-do-pedido/{pedidoItemDTO.PedidoId}");
 
         }
 
+        [HttpGet("excluir-pedido-item/{id:int}")]
+        public async Task<IActionResult> Delete([FromRoute]int id, PedidoItemDTO item)
+        {
+            item = await _pedidosItensServices.PegarPedidoPorId(id);
+            var test = "";
+            return View(item);
+
+        }
         [HttpPost("excluir-pedido-item/{id:int}")]
-        public async Task<IActionResult> Delete(int id, ProdutoDTO produtoDTO)
+        public async Task<ActionResult> Delete([FromRoute] int id)
         {
 
-            var test = id;
+            var pedidoId = await _pedidosItensServices.PegarPedidoPorId(id);
 
             await _pedidosItensServices.Remover(id);
 
-            TempData["Sucesso"] = "Produto excluido com sucesso!";
-            return RedirectToAction("Index", "Produtos");
+            //TempData["Sucesso"] = "Produto excluido com sucesso!";
+            return Redirect($"/lista-de-item-do-pedido/{pedidoId.PedidoId}");
 
         }
 

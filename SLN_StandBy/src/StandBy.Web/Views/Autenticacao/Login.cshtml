@@ -1,77 +1,65 @@
-
 @model StandBy.Web.DTOs.UsuarioLogin;
 
 @{
-   
+
 }
 
 
+<vc:Summary></vc:Summary>
+<div class="login-area">
 
-    
+  <form method="post" asp-action="Login" class=" ">
 
+    <h2 class="text-center">StandBy</h2>
+    <p class="text-center">Entre com seus dados</p>
 
-<div class="container " style="height:100vh">
-    <div class="col d-flex justify-content-center" style="height:100%">
-  <vc:Summary></vc:Summary>
-        
-  <form  method="post"  asp-action="Login"
-                  class="card w-50 mx-50  ">
-  
-   <h2 class="text-center">StandBy</h2>
-    <h2 class="text-center">Crie uma nova conta.</h2>
-
-    <div class="form-outline-mb-4">
-      <label class="" for="username">
+    <div class="form-group">
+      <label class="form-label" for="username">
         E-mail
       </label>
-            <input
-            class=" border-1 " id="username" type="text" placeholder="Username"
-            asp-for="Email" class="control" autocomplete="username" aria-required="true" placeholder="nome@exemplo.com">
-            <span asp-validation-for="Email" class="text-danger"></span>
+      <input class="form-control" id="username" type="text" placeholder="Username" asp-for="Email" class="control"
+        autocomplete="username" aria-required="true" placeholder="nome@exemplo.com">
+      <span asp-validation-for="Email" class="text-danger"></span>
     </div>
 
-    <div class="form-outline-mb-4">
-      <label class="" for="password">
+    <div class="form-group">
+      <label class="form-label" for="password">
         Senha
       </label>
-      <input      
-      asp-for="Password" class="" autocomplete="new-password" aria-required="true" placeholder="Senha" 
-       class="" id="password" type="password" placeholder="******************">
-      
+      <input asp-for="Password" class="form-control" autocomplete="new-password" aria-required="true"
+        placeholder="Senha" class="" id="password" type="password" placeholder="******************">
+
       <span asp-validation-for="Password" class="text-danger"></span>
     </div>
-    <div class="flex items-center justify-between">
-      <button 
-      id="registerSubmit" 
-      class="btn btn-primary" type="submit">
+    <div class="text-center mt-4">
+      <button id="registerSubmit" class="btn btn-primary text-center " type="submit">
         Entrar
       </button>
-      <a 
-       
-       asp-action="Registro" asp-controller="Autenticacao"
-      class= "" >
+      <a asp-action="Registro" asp-controller="Autenticacao" class="d-block text-center">
         Ainda não tem uma conta?
       </a>
     </div>
   </form>
-       
+</div>
 
-</div>
-</div>
+
+
+
+
+
+
+
+
+
 
 
 @section Scripts {
-        <partial name="_ValidationScriptsPartial" />
+  <partial name="_ValidationScriptsPartial" />
 }
 <style>
-    .centralizar{
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        margin: auto;
-    }
+  h2 {
+    color: gray;
+  }
 </style>
 
 

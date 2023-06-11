@@ -4401,24 +4401,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\desenvolvedor15\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\jhona\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\desenvolvedor15\\source\\repos\\StandByApp\\SLN_StandBy\\src\\StandyBy.Api\\StandyBy.Api.csproj",
+      "projectUniqueName": "D:\\DotnetApps\\03-standbyTest\\StandByApp\\SLN_StandBy\\src\\StandyBy.Api\\StandyBy.Api.csproj",
       "projectName": "StandyBy.Api",
-      "projectPath": "C:\\Users\\desenvolvedor15\\source\\repos\\StandByApp\\SLN_StandBy\\src\\StandyBy.Api\\StandyBy.Api.csproj",
-      "packagesPath": "C:\\Users\\desenvolvedor15\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\desenvolvedor15\\source\\repos\\StandByApp\\SLN_StandBy\\src\\StandyBy.Api\\obj\\",
+      "projectPath": "D:\\DotnetApps\\03-standbyTest\\StandByApp\\SLN_StandBy\\src\\StandyBy.Api\\StandyBy.Api.csproj",
+      "packagesPath": "C:\\Users\\jhona\\.nuget\\packages\\",
+      "outputPath": "D:\\DotnetApps\\03-standbyTest\\StandByApp\\SLN_StandBy\\src\\StandyBy.Api\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\desenvolvedor15\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\jhona\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4426,7 +4425,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "C:\\Program Files\\dotnet\\sdk\\7.0.302\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
@@ -4434,11 +4432,11 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\desenvolvedor15\\source\\repos\\StandByApp\\SLN_StandBy\\src\\StandBy.Business\\StandBy.Business.csproj": {
-              "projectPath": "C:\\Users\\desenvolvedor15\\source\\repos\\StandByApp\\SLN_StandBy\\src\\StandBy.Business\\StandBy.Business.csproj"
+            "D:\\DotnetApps\\03-standbyTest\\StandByApp\\SLN_StandBy\\src\\StandBy.Business\\StandBy.Business.csproj": {
+              "projectPath": "D:\\DotnetApps\\03-standbyTest\\StandByApp\\SLN_StandBy\\src\\StandBy.Business\\StandBy.Business.csproj"
             },
-            "C:\\Users\\desenvolvedor15\\source\\repos\\StandByApp\\SLN_StandBy\\src\\StandyBy.Data\\StandyBy.Data.csproj": {
-              "projectPath": "C:\\Users\\desenvolvedor15\\source\\repos\\StandByApp\\SLN_StandBy\\src\\StandyBy.Data\\StandyBy.Data.csproj"
+            "D:\\DotnetApps\\03-standbyTest\\StandByApp\\SLN_StandBy\\src\\StandyBy.Data\\StandyBy.Data.csproj": {
+              "projectPath": "D:\\DotnetApps\\03-standbyTest\\StandByApp\\SLN_StandBy\\src\\StandyBy.Data\\StandyBy.Data.csproj"
             }
           }
         }

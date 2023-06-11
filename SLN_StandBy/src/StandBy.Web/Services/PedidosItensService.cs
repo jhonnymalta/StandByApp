@@ -43,11 +43,17 @@ namespace StandBy.Web.Services
             _httpClient?.Dispose();
         }
 
+        public async Task<PedidoItemDTO> PegarPedidoPorId(int id)
+        {
+            var response = await _httpClient.GetAsync($"pedidos-itens/ObterItem/{id}");
+            var str = await response.Content.ReadAsStringAsync();
+            var retorno = Newtonsoft.Json.JsonConvert.DeserializeObject<PedidoItemDTO>(str);
+
+            return retorno;
+        }
+
         public async Task<IEnumerable<PedidoItemDTO>> PegarTodosItemDePedido(int id)
         {
-
-
-
 
             var response = await _httpClient.GetAsync($"pedidos-itens/{id}");
             var str = await response.Content.ReadAsStringAsync();

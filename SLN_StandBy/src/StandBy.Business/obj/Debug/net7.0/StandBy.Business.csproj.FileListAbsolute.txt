@@ -22,3 +22,15 @@ C:\Users\desenvolvedor15\Source\Repos\StandByApp\SLN_StandBy\src\StandBy.Busines
 C:\Users\desenvolvedor15\Source\Repos\StandByApp\SLN_StandBy\src\StandBy.Business\obj\Debug\net7.0\refint\StandBy.Business.dll
 C:\Users\desenvolvedor15\Source\Repos\StandByApp\SLN_StandBy\src\StandBy.Business\obj\Debug\net7.0\StandBy.Business.pdb
 C:\Users\desenvolvedor15\Source\Repos\StandByApp\SLN_StandBy\src\StandBy.Business\obj\Debug\net7.0\ref\StandBy.Business.dll
+D:\DotnetApps\03-standbyTest\standbyApp\sln_standby\src\StandBy.Business\obj\Debug\net7.0\StandBy.Business.csproj.AssemblyReference.cache
+D:\DotnetApps\03-standbyTest\standbyApp\sln_standby\src\StandBy.Business\obj\Debug\net7.0\StandBy.Business.GeneratedMSBuildEditorConfig.editorconfig
+D:\DotnetApps\03-standbyTest\standbyApp\sln_standby\src\StandBy.Business\obj\Debug\net7.0\StandBy.Business.AssemblyInfoInputs.cache
+D:\DotnetApps\03-standbyTest\standbyApp\sln_standby\src\StandBy.Business\obj\Debug\net7.0\StandBy.Business.AssemblyInfo.cs
+D:\DotnetApps\03-standbyTest\standbyApp\sln_standby\src\StandBy.Business\obj\Debug\net7.0\StandBy.Business.csproj.CoreCompileInputs.cache
+D:\DotnetApps\03-standbyTest\standbyApp\sln_standby\src\StandBy.Business\obj\Debug\net7.0\StandBy.Business.dll
+D:\DotnetApps\03-standbyTest\standbyApp\sln_standby\src\StandBy.Business\obj\Debug\net7.0\refint\StandBy.Business.dll
+D:\DotnetApps\03-standbyTest\standbyApp\sln_standby\src\StandBy.Business\obj\Debug\net7.0\StandBy.Business.pdb
+D:\DotnetApps\03-standbyTest\standbyApp\sln_standby\src\StandBy.Business\bin\Debug\net7.0\StandBy.Business.deps.json
+D:\DotnetApps\03-standbyTest\standbyApp\sln_standby\src\StandBy.Business\bin\Debug\net7.0\StandBy.Business.dll
+D:\DotnetApps\03-standbyTest\standbyApp\sln_standby\src\StandBy.Business\bin\Debug\net7.0\StandBy.Business.pdb
+D:\DotnetApps\03-standbyTest\standbyApp\sln_standby\src\StandBy.Business\obj\Debug\net7.0\ref\StandBy.Business.dll

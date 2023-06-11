@@ -36,33 +36,43 @@
                 <partial name="_LoginPartial" class="ms-auto"/>
            
         
-    </div>   
-    
-     <div class="sidebar  ">           
-             <ul class="">
-                <li>
-                    <a asp-controller="Clientes" asp-action="Index" class="   text-[21px] flex items-center p-2 text-gray-900  transition duration-300 ease-linear rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-100 ">
-                        <i class="fa-sharp fa-solid fa-shop text-gray-400"></i>
-                        <span class="flex-1 ml-3 whitespace-nowrap text-gray-900">Clientes</span>
+    </div>
 
-                    </a>
-                </li>
-         <li>
-            <a asp-controller="Produtos" asp-action="Index" class="   text-[21px] flex items-center p-2 text-gray-900  transition duration-300 ease-linear rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-100 ">
-               <i class="fa-sharp fa-solid fa-shop text-gray-400"></i>
-               <span class="flex-1 ml-3 whitespace-nowrap text-gray-900">Produtos</span>
+        <div class="sidebar   ">
+            
                
-            </a>
-         </li>
-         <li>
-            <a asp-controller="Pedidos" asp-action="Index" class=" text-[21px] flex items-center p-2 text-gray-900  transition duration-300 ease-linear rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-100">
-              <i class="fa fa-list text-gray-400"></i>
-               <span class="flex-1 ml-3 whitespace-nowrap text-gray-900  ">Pedidos</span>
-               
-            </a>
-         </li>
-         
-            </ul>
+                    <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
+                        <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+                           
+                            <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+                                <li class="nav-item " >
+                                    <a asp-controller="Clientes" asp-action="Index" class="d-flex ">
+                                <i class="fa fa-sharp fa-user "></i> <span class="ms-1 d-none d-sm-inline text-link">Clientes</span>
+                                    </a>
+                                </li>
+                        <li class="nav-item">
+                            <a asp-controller="Produtos" asp-action="Index" class="d-flex ">
+                                <i class="fa fa-sharp fa-shop"></i> <span class="ms-1 d-none d-sm-inline text-link">Produtos</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-controller="Pedidos" asp-action="Index" class="d-flex ">
+                                <i class="fa fa-sharp fa-list"></i> <span class="ms-1 d-none d-sm-inline text-link">Pedidos</span>
+                            </a>
+                        </li>
+                                
+                               
+                                
+                                
+                            </ul>
+                            <hr>
+                            
+                        </div>
+                 
+                    
+              
+            </div>
+
     </div> 
     <div class="content ">        
             @RenderBody()        
@@ -87,4 +97,12 @@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+<style>
+    .text-link {
+        color: white !important;
+    }
 
+    .text-link:hover {
+        color: aqua !important;
+    }
+</style>

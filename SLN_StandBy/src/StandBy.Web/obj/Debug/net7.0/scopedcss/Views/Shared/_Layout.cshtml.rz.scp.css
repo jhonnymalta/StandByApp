@@ -4,6 +4,7 @@ for details on configuring this project to bundle and minify static web assets. 
 html[b-85x73tj07j] {
   height: 100vh;
 }
+
 a.navbar-brand[b-85x73tj07j] {
   white-space: normal;
   text-align: center;
@@ -21,7 +22,7 @@ a[b-85x73tj07j] {
 }
 
 .nav-pills .nav-link.active[b-85x73tj07j],
-.nav-pills .show > .nav-link[b-85x73tj07j] {
+.nav-pills .show>.nav-link[b-85x73tj07j] {
   color: #fff;
   background-color: #1b6ec2;
   border-color: #1861ac;
@@ -30,6 +31,7 @@ a[b-85x73tj07j] {
 .border-top[b-85x73tj07j] {
   border-top: 1px solid #e5e5e5;
 }
+
 .border-bottom[b-85x73tj07j] {
   border-bottom: 1px solid #e5e5e5;
 }

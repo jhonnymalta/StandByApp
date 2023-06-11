@@ -28,9 +28,9 @@ body[b-5nsv5j3r36] {
 }
 
 .sidebar[b-5nsv5j3r36] {
-  grid-area: sidebar;
-  background-color: #d8dfdb;
-  box-shadow: 0.25rem 0.05rem 0.25rem rgba(51, 51, 51, 8);
+    grid-area: sidebar;
+    background-color: #212529;
+    box-shadow: 0.25rem 0.05rem 0.25rem rgba(51, 51, 51, 8);
 }
 .footer[b-5nsv5j3r36] {
   grid-area: footer;

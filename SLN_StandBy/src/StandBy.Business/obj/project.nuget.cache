@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "x7CC2t8Op9ES9p3rQMVL4EuZ+E5rTAHd3kD7Q46wWRzX4ydghgA3gzlULmW7SuYjFCYrYrfIFro5jZLQcJq+dg==",
+  "dgSpecHash": "J/tSJinhZsTMnjnzjQa7ZRnMzMFaIvJiuVlF53g4UGCaNYoT7AoqK3LIA+8bCkoxKokvy9eq1xwutSggff4uWg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\desenvolvedor15\\source\\repos\\StandByApp\\SLN_StandBy\\src\\StandBy.Business\\StandBy.Business.csproj",
+  "projectFilePath": "D:\\DotnetApps\\03-standbyTest\\StandByApp\\SLN_StandBy\\src\\StandBy.Business\\StandBy.Business.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\desenvolvedor15\\.nuget\\packages\\fluentvalidation\\11.5.2\\fluentvalidation.11.5.2.nupkg.sha512"
+    "C:\\Users\\jhona\\.nuget\\packages\\fluentvalidation\\11.5.2\\fluentvalidation.11.5.2.nupkg.sha512"
   ],
   "logs": []
 }

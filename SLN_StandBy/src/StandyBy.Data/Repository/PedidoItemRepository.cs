@@ -43,5 +43,7 @@ namespace StandyBy.Data.Repository
             var valor = await dapperConnection.QueryFirstOrDefaultAsync<decimal>(sqlqueryGetAllPedidosItem, pars);
             return valor;
         }
+
+       
     }
 }

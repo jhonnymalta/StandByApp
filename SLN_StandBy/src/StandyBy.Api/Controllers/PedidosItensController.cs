@@ -30,6 +30,13 @@ namespace StandyBy.Api.Controllers
 
             return pedidosItem;
         }
+        [HttpGet("ObterItem/{id:int}")]
+        public async Task<PedidoItemDTO> ObterItem(int id)
+        {
+            var pedidosItem = _mapper.Map<PedidoItemDTO>(await _pedidoItemRepository.ObterPorId(id));
+
+            return pedidosItem;
+        }
 
 
 
@@ -48,7 +55,7 @@ namespace StandyBy.Api.Controllers
         [HttpPut("{id:int}")]
         public async Task<ActionResult<PedidoItemDTO>> Atualizar([FromRoute] int id, [FromBody] PedidoItemDTO pedidoDTO)
         {
-            //if (id != produtoDTO.Id) return BadRequest();
+           
 
             if (!ModelState.IsValid) return BadRequest();
 
