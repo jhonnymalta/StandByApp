@@ -13,7 +13,7 @@ namespace StandBy.Business.Models.Validations
         {
             RuleFor(p => p.CpfCnpj)
                     .NotEmpty().WithMessage("O campo {PropertyName} não pode ser vazio.")
-                    .Length(11, 14).WithMessage("O campo {PropertyName} deve conter entre {MinLength} e {MaxLength} caracters.");
+                    .Length(11, 18).WithMessage("O campo {PropertyName} deve conter entre {MinLength} e {MaxLength} caracters.");
             RuleFor(p => p.Nome)
                .NotEmpty().WithMessage("O campo {PropertyName} não pode ser vazio.")
                     .Length(2,100).WithMessage("O campo {PropertyName} deve conter entre {MinLength} e {MaxLength} caracters.");

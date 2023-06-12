@@ -1,4 +1,26 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿function SendAjax() {
+    $.ajax({
+        url: 'https://localhost:44391/api/produtos',
+        crossDomain: true,
+        type: "GET",        
+        dataType: 'json',
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Headers': "Origin, X-Requested-With, Content-Type, Accept",
+            'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, DELETE'
+        },
+        complete: function () {
+            console.log("finalizou")
+        },
 
-// Write your JavaScript code.
+        success: function (data) {
+            console.log(data[1].valor)
+        },
+        error: function (data) {
+            console.log("Deu Erro: " + data.error)
+        }
+    });
+   
+};
+
+

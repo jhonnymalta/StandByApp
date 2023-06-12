@@ -18,6 +18,12 @@
 </ul> 
 </div>
 
+<!--Resposta ajax-->
+<button  onclick="SendAjax()">enviar</button>
+<p class="data">
+    
+</p>
+
 
 
 <div class="row">
@@ -26,7 +32,7 @@
                 <form asp-controller="PedidosItens" asp-action="CreateItem"  method="post" >
                     <input hidden asp-for="PedidoId">
                 <div class="d-flex flex-row ">
-               <select id="prodSelecao" name="ProdutoID" asp-for="ProdutoID"  class=" bg-gray-200 border border-gray-300 text-gray-900 rounded-lg pl-4 " >
+               <select id="prodSelecao" name="ProdutoID" asp-for="ProdutoID"  class="  " >
                     @foreach (var item in @Model.ListaProdutos)
                     {
                                 
@@ -36,7 +42,7 @@
 
 
                 </select>
-                <select disabled id="valores" name="ValorUnitario" asp-for="ValorUnitario" class=" bg-gray-200 border border-gray-300 text-gray-900 rounded-lg pl-4 " >
+                <select disabled id="valores" name="ValorUnitario" asp-for="ValorUnitario" class="  " >
                     @for (int i = 0; i < @Model.ListaProdutos.Count; i++)
                     {
                          <option  value="@i">@Model.ListaProdutos[i].Valor</option>
@@ -47,7 +53,7 @@
                 </select>
 
 
-                <input id="valor" type="number" asp-for="Quantidade" class="bg-gray-200 border border-gray-300 text-gray-900 rounded-lg pl-4 " />
+                <input id="valor" type="number" asp-for="Quantidade" class="" />
                           
 
 
@@ -60,33 +66,33 @@
                 </form>
             </div>
 </div>
+
+
+   
+
+
+
+
 @{
-    
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
 }
 
-        
-        <script>
-            var preço = 0.0;
-            var total = 0.0;
-            var qtd = 0;
-            
 
-            
-           $( "#prodSelecao" ).on( "change", function() {              
-             $("#valores").val($('#prodSelecao')[0].selectedIndex).select       
-              
 
-            alert( $('#prodSelecao')[0].selectedIndex)
-            alert( $('#valor').val() )
-                    
-            } );
+<script >  
+
+    $(document).ready(function () {
        
+        //-------- select preços
+        $("#prodSelecao").on("change", function () {
+            $("#valores").val($('#prodSelecao')[0].selectedIndex).select
 
-        </script>
+        });
+    });
 
-    @{        
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
+</script>
+
+
 
 
 

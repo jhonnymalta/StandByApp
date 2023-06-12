@@ -42,7 +42,7 @@ namespace StandBy.Web.Controllers
 
 
 
-
+        //tela select items
         [HttpGet("novo-item/{id:int}")]
         public async Task<IActionResult> Create(int id)
         {

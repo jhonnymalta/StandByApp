@@ -44,7 +44,7 @@ namespace StandyBy.Api.Controllers
         public async Task<ActionResult<PedidoItemDTO>> Adicionar([FromBody] PedidoItemDTO pedidoItemDTO)
         {
             if (!ModelState.IsValid) return BadRequest();
-
+            
             var pedidoItem = _mapper.Map<PedidoItem>(pedidoItemDTO);
             var result = await _pedidoItemServices.Adicionar(pedidoItem);
             if (!result) return BadRequest();

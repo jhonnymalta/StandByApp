@@ -1,5 +1,6 @@
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -56,7 +57,13 @@ builder.Services.AddAuthentication(options =>
         ValidIssuer = appSettings.Emissor
     };
 });
-
+builder.Services.AddCors(options => options.AddPolicy("CorsPolicy", builder =>
+{
+    builder
+        .AllowAnyMethod()
+        .AllowAnyHeader()
+        .AllowAnyOrigin();
+}));
 builder.Services.AddIdentityConfiguration(builder.Configuration);
 builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.AddResponseCaching();
@@ -83,7 +90,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
+app.UseCors("CorsPolicy");
 app.UseHttpsRedirection();
 app.UseAuthentication();
 

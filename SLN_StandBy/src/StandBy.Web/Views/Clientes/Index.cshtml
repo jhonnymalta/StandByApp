@@ -40,16 +40,16 @@ class="bg-gray-200 border border-gray-300 text-gray-900 rounded-lg pl-4 h-10 w-[
   <tbody id="myTable">
       @foreach (var item in Model)
       {
-                                        <tr class="bg-gray-100 hover:bg-gray-300 max-h-6 hover:text-blue-500">
-                                         <td class="pl-4">@item.Nome</td>
-                                         <td class="pl-4">@item.CpfCnpj</td>
-                                         <td class="pl-4">@item.Ativo</td>                                       
+            <tr class="bg-gray-100 hover:bg-gray-300 max-h-6 hover:text-blue-500">
+             <td class="pl-4">@item.Nome</td>
+                <td class="pl-4 cpfcnpj">@item.CpfCnpj</td>
+             <td class="pl-4">@item.Ativo</td>                                       
 
-                                          <td class="align-bottom px-6 py-4">
-                                            <a asp-controller="Clientes" asp-action="Edit" asp-route-id="@item.Id" class="mx-4"><i class="fa fa-pencil text-green-600 hover:text-blue-500 " aria-hidden="true"></i></a>
-                                            <a asp-controller="Clientes" asp-action="Delete" asp-route-id="@item.Id" class="ml-6 text-red-500"><i class="fa fa-trash" aria-hidden="true"></i></a>
-                                         </td>
-                                         </tr>
+              <td class="align-bottom px-6 py-4">
+                <a asp-controller="Clientes" asp-action="Edit" asp-route-id="@item.Id" class="mx-4"><i class="fa fa-pencil text-green-600 hover:text-blue-500 " aria-hidden="true"></i></a>
+                <a asp-controller="Clientes" asp-action="Delete" asp-route-id="@item.Id" class="ml-6 text-red-500"><i class="fa fa-trash" aria-hidden="true"></i></a>
+             </td>
+             </tr>
                                          
 
       }
@@ -63,7 +63,11 @@ class="bg-gray-200 border border-gray-300 text-gray-900 rounded-lg pl-4 h-10 w-[
   @section Scripts {
 
             <script>
+
+
+
             $(document).ready(function(){
+            $('.cpfcnpj').mask('00.000.000/0000-00', { reverse: true });
               $("#myInput").on("keyup", function() {
                 var value = $(this).val().toLowerCase();
                 $("#myTable tr").filter(function() {
@@ -71,6 +75,8 @@ class="bg-gray-200 border border-gray-300 text-gray-900 rounded-lg pl-4 h-10 w-[
                 });
               });
             });
+
+       
             </script>
 
 }

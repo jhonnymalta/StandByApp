@@ -55,6 +55,10 @@ namespace StandBy.Web.Controllers
         [HttpPost("novo-cliente")]
         public async Task<ActionResult> Create(ClienteDTO clienteDTO)
         {
+           var cpfFormater = clienteDTO.CpfCnpj.Replace(".", "");
+            var cpfFormater2 = cpfFormater.Replace("/", "");
+            var cpfFormater3 = cpfFormater2.Replace("-", "");
+            clienteDTO.CpfCnpj = cpfFormater3;
             if (!ModelState.IsValid) return View(clienteDTO);
 
             var resposta = await _clientesService.Adicionar(clienteDTO);

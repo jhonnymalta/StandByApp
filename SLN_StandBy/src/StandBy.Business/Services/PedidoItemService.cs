@@ -34,6 +34,7 @@ namespace StandBy.Business.Services
             //     Notificar("Já Existe um produto com este código.");
             //     return false;
             // }
+            pedidoItem.ValorUnitario = await _pedidoItemRepository.BuscarValorProduto(pedidoItem.ProdutoID);
             await _pedidoItemRepository.Adicionar(pedidoItem);
             return true;
 
