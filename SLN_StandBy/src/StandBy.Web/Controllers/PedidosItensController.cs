@@ -18,13 +18,15 @@ namespace StandBy.Web.Controllers
 
 
         private readonly IPedidosItensService _pedidosItensServices;
+        private readonly IPedidosService _pedidosServices;
         private readonly IProdutosService _produtosServices;
         private readonly IMapper _mapper;
 
-        public PedidosItensController(IMapper mapper, IPedidosItensService pedidoItensService, IProdutosService produtosServices)
+        public PedidosItensController(IMapper mapper, IPedidosService pedidosServices, IPedidosItensService pedidoItensService, IProdutosService produtosServices)
         {
             _pedidosItensServices = pedidoItensService;
             _produtosServices = produtosServices;
+            _pedidosServices = pedidosServices;
             _mapper = mapper;
 
         }
@@ -59,26 +61,30 @@ namespace StandBy.Web.Controllers
         [HttpPost("novo-item/{id:int}")]
         public async Task<ActionResult> Create(int id,PedidoItemDTO pedidoItemDTO)
         {
-
-
-
             if (!ModelState.IsValid) return View(pedidoItemDTO);
 
             await _pedidosItensServices.Adicionar(pedidoItemDTO);
+           
             return RedirectToAction("Create", "PedidosItens");
 
         }
+
+        
+
         [HttpPost("add-item")]
         public async Task<ActionResult> CreateItem(PedidoItemDTO pedidoItemDTO)
         {
             if (!ModelState.IsValid) return View(pedidoItemDTO);
-
+           
+            
             await _pedidosItensServices.Adicionar(pedidoItemDTO);
 
            
             return Redirect($"lista-de-item-do-pedido/{pedidoItemDTO.PedidoId}");
 
         }
+
+
 
         [HttpGet("excluir-pedido-item/{id:int}")]
         public async Task<IActionResult> Delete([FromRoute]int id, PedidoItemDTO item)

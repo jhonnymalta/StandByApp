@@ -23,11 +23,6 @@ namespace StandBy.Web.Services
             _httpClient = httpClient;
         }
 
-
-
-
-
-
         public async Task<string> Adicionar(Pedido pedido)
         {
             var content = new StringContent(
@@ -42,12 +37,6 @@ namespace StandBy.Web.Services
             return await response.Content.ReadAsStringAsync();
 
         }
-
-
-
-
-
-
 
         public async Task<string> Atualizar(int id, PedidoDTO pedidoDTO)
         {
@@ -75,14 +64,6 @@ namespace StandBy.Web.Services
         }
 
 
-
-
-
-
-
-
-
-
         public async Task<PedidoDTO> ObterPorId(int id)
         {
             var response = await _httpClient.GetAsync($"pedidos/{id}");
@@ -90,14 +71,6 @@ namespace StandBy.Web.Services
             var retorno = Newtonsoft.Json.JsonConvert.DeserializeObject<PedidoDTO>(str);
             return retorno;
         }
-
-
-
-
-
-
-
-
 
         public async Task<List<PedidoDTO>> ObterTodos()
         {
@@ -159,6 +132,12 @@ namespace StandBy.Web.Services
 
         }
 
-
+        public async Task<PedidoDTO> ObterPorCliente(int id)
+        {
+            var response = await _httpClient.GetAsync($"pedidos/cliente/{id}");
+            var str = await response.Content.ReadAsStringAsync();
+            var retorno = Newtonsoft.Json.JsonConvert.DeserializeObject<PedidoDTO>(str);
+            return retorno;
+        }
     }
 }

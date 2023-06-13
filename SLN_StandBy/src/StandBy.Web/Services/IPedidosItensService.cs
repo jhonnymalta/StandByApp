@@ -17,5 +17,6 @@ namespace StandBy.Web.Services
         Task<int> SaveChanges();
         Task<IEnumerable<PedidoItemDTO>> PegarTodosItemDePedido(int id);
         Task<PedidoItemDTO> PegarPedidoPorId(int id);
+        
     }
 }

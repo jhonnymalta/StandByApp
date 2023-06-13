@@ -1,0 +1,11 @@
+﻿@model StandBy.Web.DTOs.ClienteDTO
+@{
+    ViewData["Title"] = "Excluir cliente";
+    Layout = "_Layout_Loged";
+}
+
+<div>
+    <h2 class="text-center text-gray-500 text-2xl mb-4">Não é possível deletar um cliente com pedido em aberto! <span class="text-3xl font-bold"></span></h2>
+    <a class="btn btn-info" asp-action="Index" asp-controller="Clientes">Voltar</a>
+</div>
+

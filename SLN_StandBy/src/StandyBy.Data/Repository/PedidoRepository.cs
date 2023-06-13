@@ -14,9 +14,17 @@ namespace StandyBy.Data.Repository
     {
         public PedidoRepository(StandByDBContext context) : base(context) { }
 
+        
+
         public async Task<IEnumerable<Cliente>> ObterTodosClientes()
         {
             return await _dbContext.Clientes.ToListAsync();
+        }
+       
+
+        public async Task<Pedido> ObterUmPedidoPorCliente(int id)
+        {
+            return await _dbContext.Pedidos.FirstOrDefaultAsync(x => x.ClienteId == id);
         }
     }
 }

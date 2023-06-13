@@ -10,5 +10,7 @@ namespace StandBy.Business.Intefaces
     public interface IPedidoRepository : IRepository<Pedido>
     {
         Task<IEnumerable<Cliente>> ObterTodosClientes();
+        Task<Pedido> ObterUmPedidoPorCliente(int id);
+        
     }
 }

@@ -18,57 +18,48 @@
 </ul> 
 </div>
 
-<!--Resposta ajax-->
-<button  onclick="SendAjax()">enviar</button>
-<p class="data">
-    
-</p>
+
 
 
 
 <div class="row">
     <div class="  mb-4 ">
                 <label class="mb-2 text-gray-500 text-2xl">Selecione o cliente</label>
-                <form asp-controller="PedidosItens" asp-action="CreateItem"  method="post" >
+                <form asp-controller="PedidosItens" asp-action="CreateItem"  method="post" id="myForm">
                     <input hidden asp-for="PedidoId">
-                <div class="d-flex flex-row ">
-               <select id="prodSelecao" name="ProdutoID" asp-for="ProdutoID"  class="  " >
-                    @foreach (var item in @Model.ListaProdutos)
-                    {
-                                
-                                <option value="@item.Id" >@item.Descricao</option>
-                                
-                    }
+                    <input hidden id="valorUnitarioSend" type="number" asp-for="ValorUnitario"></input>
+                    <input hidden id="valorTotal" type="number" asp-for="ValorTotal"></input>
+                     <div class="d-flex flex-row ">
 
+                    <select id="prodSelecao" name="ProdutoID" asp-for="ProdutoID"  class="  " >
+                         @foreach (var item in @Model.ListaProdutos)
+                         {
+                                     
+                                     <option value="@item.Id" >@item.Descricao</option>
+                                     
+                         }
+                     </select>
 
-                </select>
-                <select disabled id="valores" name="ValorUnitario" asp-for="ValorUnitario" class="  " >
-                    @for (int i = 0; i < @Model.ListaProdutos.Count; i++)
-                    {
-                         <option  value="@i">@Model.ListaProdutos[i].Valor</option>
-                    }
-                   
+                     <select disabled id="valores"  class="  " >
+                         @for (int i = 0; i < @Model.ListaProdutos.Count; i++)
+                         {
+                              <option  value="@i">@Model.ListaProdutos[i].Valor</option>
+                         }
+                     </select>
 
+                    <input id="quantidade" type="number" asp-for="Quantidade" class="" />
 
-                </select>
+                    <button type="submit" class="btn btn-primary " id="buttonSubmit">Incluir</button>
+                    <a class="btn btn-warning " asp-route-returnUrl="@Url.Action("Index", "PedidosItens", new { area = "" })">Cancelar</a>
 
-
-                <input id="valor" type="number" asp-for="Quantidade" class="" />
-                          
-
-
-
-
-                <button type="submit" class=" ">Incluir</button>
-                <a class=" " asp-route-returnUrl="@Url.Action("Index", "PedidosItens", new { area = "" })">Cancelar</a>
-
-                </div>
+                 </div>
                 </form>
+                <span id="spanAlert" class="text-danger mt-4"> Quantidade em estoque indispovível</span>
             </div>
 </div>
 
 
-   
+
 
 
 
@@ -80,15 +71,49 @@
 
 
 <script >  
-
+   
     $(document).ready(function () {
-       
+        $("#spanAlert").hide();
+        
+        SendAjax();
         //-------- select preços
         $("#prodSelecao").on("change", function () {
             $("#valores").val($('#prodSelecao')[0].selectedIndex).select
-
         });
+        //-------- Pesquisar quantidade
+        $("#quantidade").on("change", function () {
+            
+            let id =$("#prodSelecao").val();
+            let qtd = $("#quantidade").val();
+            const valor = colection.find(el => el.id == id )
+            $("#valorUnitarioSend").val(valor.valor)
+            $("#valorTotal").val(valor.valor * qtd)
+            let quantEstoque = valor.quantidadeEstoque;            
+            let disponivel = quantEstoque - qtd;           
+            if(disponivel < 1){
+                console.log("Quantidade indispóniel");
+                $("#buttonSubmit").addClass("disabled")               
+                $("#spanAlert").show();
+            }
+            else{
+                $("#buttonSubmit").removeClass("disabled "),
+                                
+                $("#spanAlert").hide();
+            }
+            
+            
+        });
+        //prevent default formulario
+        const form = document.getElementById('myForm');
+        form.addEventListener('keypress', function (e) {
+            if (e.keyCode === 13) {
+                e.preventDefault();
+            }
+        });
+
     });
+
+
 
 </script>
 

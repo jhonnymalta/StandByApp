@@ -17,5 +17,6 @@ namespace StandBy.Web.Services
         Task<string> Remover(int id);
         Task<IEnumerable<ClienteDTO>> BuscarListaDeCliente();
         Task<int> SaveChanges();
+        Task<PedidoDTO> ObterPorCliente(int id);
     }
 }

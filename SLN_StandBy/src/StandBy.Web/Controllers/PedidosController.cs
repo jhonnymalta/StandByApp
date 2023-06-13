@@ -29,8 +29,6 @@ namespace StandBy.Web.Controllers
 
 
 
-
-
         [HttpGet("lista-de-pedidos")]
         public async Task<IActionResult> Index()
         {
@@ -41,13 +39,9 @@ namespace StandBy.Web.Controllers
 
 
         }
-
-
-
-
-
-
-
+        
+        
+        
         [HttpGet("novo-pedido")]
         public async Task<IActionResult> Create()
         {
@@ -61,6 +55,8 @@ namespace StandBy.Web.Controllers
 
         }
 
+
+
         [HttpPost("novo-pedido")]
         public async Task<IActionResult> Create(PedidoDTO pedidoDTO)
         {
@@ -69,11 +65,9 @@ namespace StandBy.Web.Controllers
             Pedido abrirPedido = new Pedido();
             abrirPedido.ClienteId = pedidoDTO.ClienteId;
             abrirPedido.Status = Char.Parse("A");
+            abrirPedido.Data = DateTime.Now;
+            abrirPedido.DataAtualizacao = DateTime.Now;
             abrirPedido.Valor = 0.0M;
-
-
-
-
 
             await _pedidosService.Adicionar(_mapper.Map<Pedido>(abrirPedido));
             return RedirectToAction("Index", "Pedidos");

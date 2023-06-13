@@ -7,6 +7,7 @@ using StandBy.Web.DTOs;
 using StandBy.Web.Services;
 
 
+
 namespace StandBy.Web.Controllers
 {
 
@@ -16,10 +17,12 @@ namespace StandBy.Web.Controllers
 
 
         private readonly IClientesService _clientesService;
+        private readonly IPedidosService _pedidoService;
 
-        public ClientesController(IClientesService clientesService)
+        public ClientesController(IClientesService clientesService, IPedidosService pedidoService)
         {
             _clientesService = clientesService;
+            _pedidoService = pedidoService; 
         }
 
 
@@ -95,7 +98,10 @@ namespace StandBy.Web.Controllers
         public async Task<IActionResult> Edit(int id, ClienteDTO cliente)
         {
             if (id != cliente.Id) return NotFound();
-
+            var cpfFormater = cliente.CpfCnpj.Replace(".", "");
+            var cpfFormater2 = cpfFormater.Replace("/", "");
+            var cpfFormater3 = cpfFormater2.Replace("-", "");
+            cliente.CpfCnpj = cpfFormater3;
             var clienteAtualizacao = await _clientesService.ObterPorId(id);
             clienteAtualizacao.CpfCnpj = cliente.CpfCnpj;
             clienteAtualizacao.Ativo = cliente.Ativo;
@@ -131,7 +137,9 @@ namespace StandBy.Web.Controllers
         public async Task<IActionResult> Delete(int id, ProdutoDTO produtoDTO)
         {
 
-            var test = id;
+            var existePedido =await _pedidoService.ObterPorCliente(id);
+            if (existePedido.ClienteId > 0) { return View("NotAllowed"); }
+            var test = 20;
 
             await _clientesService.Remover(id);
 

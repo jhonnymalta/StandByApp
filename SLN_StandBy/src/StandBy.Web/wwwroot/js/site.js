@@ -1,4 +1,7 @@
-﻿function SendAjax() {
+﻿
+var colection = [];
+function SendAjax() {
+   
     $.ajax({
         url: 'https://localhost:44391/api/produtos',
         crossDomain: true,
@@ -12,9 +15,8 @@
         complete: function () {
             console.log("finalizou")
         },
-
         success: function (data) {
-            console.log(data[1].valor)
+            colection =data;
         },
         error: function (data) {
             console.log("Deu Erro: " + data.error)
